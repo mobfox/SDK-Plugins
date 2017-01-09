@@ -157,7 +157,7 @@ public class MobFox : MonoBehaviour
 	{
 		if ((mobFoxPlugin != null) && (activityContext != null)) {
 			activityContext.Call("runOnUiThread", new AndroidJavaRunnable(() => {
-				mobFoxPlugin.Call("createBanner", MobFoxBannerInventoryHash, 0, 0, 320, 50);
+				mobFoxPlugin.Call("createSmartBanner", MobFoxBannerInventoryHash, 0, 0, 50);
 			}));
 		}
 	}
