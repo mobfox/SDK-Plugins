@@ -1,11 +1,15 @@
 #!/bin/bash
 echo "Hello from a bash script file."
 
+cd "$(dirname "$0")"
 
+cd ..
 
-mkdir /Users/TAKEphONE/Adobe-Air/MobFoxAirPlugin/temp
+mkdir temp
 
-cd /Users/TAKEphONE/Adobe-Air/MobFoxAirPlugin/temp
+cd temp
+
+ls
 
 cp ../AndroidMobFoxPluginLib/MobFox-Android-Air-Adapter.jar MobFox-Android-Air-Adapter.jar
 cp ../AndroidMobFoxPluginLib/MobFox-Android-SDK-Core-3.0.6ShSh.jar MobFox-Android-SDK-Core-3.0.6ShSh.jar
@@ -35,7 +39,7 @@ rm -rf values
 
 
 
-cd /Users/TAKEphONE/Adobe-Air/MobFoxAirPlugin/build
+cd ../build
 
 /Users/TAKEphONE/Downloads/AIRSDK_Compiler/bin/adt -package -target ane MobFoxPlugin.ane extension.xml -swc MobFoxPluginLib.swc -platform iPhone-ARM -C ios . -platformoptions platformoptions_ios.xml -platform Android-ARM -C android . -platformoptions platformoptions_android.xml -platform default -C default .
 

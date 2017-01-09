@@ -7,12 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2800ED721D89A6BE00718706 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2800ED711D89A6BE00718706 /* AdSupport.framework */; };
 		28167C4F1D8E943C00257826 /* iOSMobFoxPluginLibWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 28167C4E1D8E943C00257826 /* iOSMobFoxPluginLibWrapper.m */; };
 		281C43961D8719DE005E11F6 /* iOSMobFoxPluginLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 281C43951D8719DE005E11F6 /* iOSMobFoxPluginLib.m */; };
+		28296AEE1E23C3BB00E8981B /* MobFoxSDKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28296AED1E23C3BB00E8981B /* MobFoxSDKCore.framework */; };
 		282B6F611D8EAC430073EF2B /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 282B6F5F1D8EAC430073EF2B /* iToast.m */; };
-		283C5EDA1E07BEA30013C6FF /* MobFoxSDKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283C5ED81E07BEA30013C6FF /* MobFoxSDKCore.framework */; };
-		283C5EDB1E07BEA30013C6FF /* MobFoxSDKCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 283C5ED91E07BEA30013C6FF /* MobFoxSDKCore.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,16 +26,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2800ED711D89A6BE00718706 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		28167C4D1D8E943C00257826 /* iOSMobFoxPluginLibWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSMobFoxPluginLibWrapper.h; sourceTree = "<group>"; };
 		28167C4E1D8E943C00257826 /* iOSMobFoxPluginLibWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSMobFoxPluginLibWrapper.m; sourceTree = "<group>"; };
 		281C43901D8719DE005E11F6 /* libiOSMobFoxPluginLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiOSMobFoxPluginLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		281C43951D8719DE005E11F6 /* iOSMobFoxPluginLib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSMobFoxPluginLib.m; sourceTree = "<group>"; };
 		281C439C1D871C42005E11F6 /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashRuntimeExtensions.h; sourceTree = "<group>"; };
+		28296AED1E23C3BB00E8981B /* MobFoxSDKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobFoxSDKCore.framework; path = iOSMobFoxPluginLib/MobFoxSDKCore.framework; sourceTree = "<group>"; };
 		282B6F5F1D8EAC430073EF2B /* iToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iToast.m; sourceTree = "<group>"; };
 		282B6F601D8EAC430073EF2B /* iToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iToast.h; sourceTree = "<group>"; };
-		283C5ED81E07BEA30013C6FF /* MobFoxSDKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobFoxSDKCore.framework; path = iOSMobFoxPluginLib/MobFoxSDKCore.embeddedframework/MobFoxSDKCore.framework; sourceTree = "<group>"; };
-		283C5ED91E07BEA30013C6FF /* MobFoxSDKCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MobFoxSDKCore.bundle; path = iOSMobFoxPluginLib/MobFoxSDKCore.embeddedframework/MobFoxSDKCore.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,8 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2800ED721D89A6BE00718706 /* AdSupport.framework in Frameworks */,
-				283C5EDA1E07BEA30013C6FF /* MobFoxSDKCore.framework in Frameworks */,
+				28296AEE1E23C3BB00E8981B /* MobFoxSDKCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,8 +51,6 @@
 		281C43871D8719DE005E11F6 = {
 			isa = PBXGroup;
 			children = (
-				283C5ED71E07BE870013C6FF /* MobFoxSDKCore.embeddedframework */,
-				2800ED711D89A6BE00718706 /* AdSupport.framework */,
 				281C43921D8719DE005E11F6 /* iOSMobFoxPluginLib */,
 				281C43911D8719DE005E11F6 /* Products */,
 				289969991D91061D009A0C78 /* Frameworks */,
@@ -85,18 +78,10 @@
 			path = iOSMobFoxPluginLib;
 			sourceTree = "<group>";
 		};
-		283C5ED71E07BE870013C6FF /* MobFoxSDKCore.embeddedframework */ = {
-			isa = PBXGroup;
-			children = (
-				283C5ED81E07BEA30013C6FF /* MobFoxSDKCore.framework */,
-				283C5ED91E07BEA30013C6FF /* MobFoxSDKCore.bundle */,
-			);
-			name = MobFoxSDKCore.embeddedframework;
-			sourceTree = "<group>";
-		};
 		289969991D91061D009A0C78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				28296AED1E23C3BB00E8981B /* MobFoxSDKCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -158,7 +143,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				283C5EDB1E07BEA30013C6FF /* MobFoxSDKCore.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,7 +201,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -257,7 +241,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -274,9 +258,12 @@
 					"$(PROJECT_DIR)/iOSMobFoxPluginLib",
 					"$(PROJECT_DIR)/iOSMobFoxPluginLib/MobFoxSDKCore.embeddedframework",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-w",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				VALID_ARCHS = "arm64 armv7";
@@ -293,8 +280,11 @@
 					"$(PROJECT_DIR)/iOSMobFoxPluginLib",
 					"$(PROJECT_DIR)/iOSMobFoxPluginLib/MobFoxSDKCore.embeddedframework",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				OTHER_LDFLAGS = "-ObjC";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-w",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				VALID_ARCHS = "arm64 armv7";
