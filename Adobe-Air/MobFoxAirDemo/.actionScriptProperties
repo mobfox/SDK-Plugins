@@ -21,14 +21,13 @@
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/spark_dmv.swc" useDefaultLinkType="false"/>
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation.swc" useDefaultLinkType="false"/>
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_dmv.swc" useDefaultLinkType="false"/>
-          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/air/airframework.swc" useDefaultLinkType="false"/>
-          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/air/applicationupdater_ui.swc" useDefaultLinkType="false"/>
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_flashflexkit.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/air/applicationupdater_ui.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/air/airframework.swc" useDefaultLinkType="false"/>
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_agent.swc" useDefaultLinkType="false"/>
         </excludedEntries>
       </libraryPathEntry>
-      <libraryPathEntry kind="1" linkType="1" path="libs"/>
-      <libraryPathEntry kind="5" linkType="2" path="/Users/TAKEphONE/Adobe-Air/MobFoxAirPlugin/build/MobFoxPlugin.ane"/>
+      <libraryPathEntry kind="5" linkType="2" path="/Users/TAKEphONE/Documents/Matomy/SDK-Plugins/SDK-Plugins/Adobe-Air/MobFoxAirPlugin/build/MobFoxPlugin.ane"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>
@@ -55,7 +54,7 @@
           <pathEntry path="button_close_55x55.png"/>
         </airExcludes>
         <anePaths>
-          <anePathEntry path="/Users/TAKEphONE/Adobe-Air/MobFoxAirPlugin/build/MobFoxPlugin.ane"/>
+          <anePathEntry path="/Users/TAKEphONE/Documents/Matomy/SDK-Plugins/SDK-Plugins/Adobe-Air/MobFoxAirPlugin/build/MobFoxPlugin.ane"/>
         </anePaths>
         <newLaunchParams/>
         <modifiedLaunchParams/>
