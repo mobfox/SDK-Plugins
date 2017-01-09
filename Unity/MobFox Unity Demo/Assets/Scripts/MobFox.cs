@@ -157,6 +157,15 @@ public class MobFox : MonoBehaviour
 	{
 		if ((mobFoxPlugin != null) && (activityContext != null)) {
 			activityContext.Call("runOnUiThread", new AndroidJavaRunnable(() => {
+				mobFoxPlugin.Call("createBanner", MobFoxBannerInventoryHash, 0, 0, 320, 50);
+			}));
+		}
+	}
+
+	private void ShowMobFoxSmartBanner_Android()
+	{
+		if ((mobFoxPlugin != null) && (activityContext != null)) {
+			activityContext.Call("runOnUiThread", new AndroidJavaRunnable(() => {
 				mobFoxPlugin.Call("createSmartBanner", MobFoxBannerInventoryHash, 0, 0, 50);
 			}));
 		}
@@ -173,6 +182,20 @@ public class MobFox : MonoBehaviour
 			ShowMobFoxBanner_Android ();
 		} else {
 			ShowMobFoxBanner_iPhone ();
+		}
+	}
+		
+	public void ShowMobFoxSmartBanner()
+	{
+		Debug.Log ("### ShowMobFoxBanner ###");
+
+		ConnectToPlugin ();
+
+		if (Application.platform == RuntimePlatform.Android)
+		{
+			ShowMobFoxSmartBanner_Android ();
+		} else {
+			return;
 		}
 	}
 
