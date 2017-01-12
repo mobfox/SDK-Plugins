@@ -6,3 +6,6 @@ Download and Docs in [wiki](https://github.com/mobfox/SDK-Plugins/wiki/Unity-Plu
 
 ## Cordova Plugin
 Download and Docs in [wiki](https://github.com/mobfox/SDK-Plugins/wiki/Cordova-Plugin).
+
+## Adobe Air Plugin
+Download and Docs in [wiki](https://github.com/mobfox/SDK-Plugins/wiki/Adobe-Air-Plugin).
