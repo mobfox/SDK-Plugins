@@ -134,6 +134,26 @@ public class MobFoxPlugin
 	
 	//=======================================================================
 	
+	public void hideBanner()
+	{
+		if (mBanner!=null)
+		{
+			mBanner.setVisibility(View.GONE);
+		}
+	}
+
+	//=======================================================================
+	
+	public void showBanner()
+	{
+		if (mBanner!=null)
+		{
+			mBanner.setVisibility(View.VISIBLE);
+		}
+	}
+
+	//=======================================================================
+	
 	private BannerListener mBannerListener = new BannerListener() {
         @Override
         public void onBannerError(View view, Exception e) {

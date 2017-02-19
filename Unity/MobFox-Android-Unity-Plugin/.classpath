@@ -6,6 +6,6 @@
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="lib" path="/eclipse/MobFox-Android-Unity-Plugin/libs/classes.jar"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
-	<classpathentry kind="lib" path="/eclipse/MobFox-Android-Unity-Plugin/libs/MobFox-Android-SDK-Core-3.0.6ShSh.jar"/>
+	<classpathentry kind="lib" path="/eclipse/MobFox-Android-Unity-Plugin/libs/MobFox-Android-SDK-Core-3.2.3.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
