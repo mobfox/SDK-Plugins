@@ -19,6 +19,9 @@
           sizeWidth:(CGFloat)sizeWidth
          sizeHeight:(CGFloat)sizeHeight;
 
+-(void) hideBanner;
+-(void) showBanner;
+
 -(void) createInterstitial:(NSString*)invh;
 -(void) showInterstitial;
 

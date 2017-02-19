@@ -14,8 +14,6 @@
 
 @property (nonatomic) double latitude;
 @property (nonatomic) double longitude;
-@property (nonatomic) double accuracy;
-
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
 + (instancetype)sharedInstance;

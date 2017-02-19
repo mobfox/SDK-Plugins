@@ -19,24 +19,18 @@
 
 @protocol MobFoxNativeAdDelegate <NSObject>
 
-@required
-
 - (void)MobFoxNativeAdDidLoad:(MobFoxNativeAd*)ad withAdData:(MobFoxNativeData *)adData;
-
-@optional
 
 - (void)MobFoxNativeAdDidFailToReceiveAdWithError:(NSError *)error;
 
 @end
 
-@interface MobFoxNativeAd : NSObject <MobFoxNativeCustomEventDelegate>
+@interface MobFoxNativeAd : NSObject<MobFoxNativeCustomEventDelegate>
 
-    @property (nonatomic, weak) id <MobFoxNativeAdDelegate> delegate;
+    @property (nonatomic, weak) id<MobFoxNativeAdDelegate> delegate;
     
     @property (nonatomic, copy) NSString* longitude;
     @property (nonatomic, copy) NSString* latitude;
-    @property (nonatomic, copy) NSString* accuracy;
-
     @property (nonatomic, copy) NSString* demo_gender; //"m/f"
     @property (nonatomic, copy) NSString* demo_age;
     @property (nonatomic, copy) NSString* s_subid;

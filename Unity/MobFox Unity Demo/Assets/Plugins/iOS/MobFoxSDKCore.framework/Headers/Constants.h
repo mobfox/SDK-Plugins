@@ -8,21 +8,14 @@
 
 
 #import <UIKit/UIKit.h>
+//#import <Foundation/Foundation.h>
 
-/* Versions */
-#define SDK_VERSION @"Core_2.3.0"
+
+#define SDK_VERSION @"Core_2.1.2"
 #define OS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
 #define FW_VERSION [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"]
 #define BUILD_VERSION [[NSBundle mainBundle] objectForInfoDictionaryKey: (NSString *)kCFBundleVersionKey]
-
-/* Errors */
 #define ERROR_DOMAIN @""
-
-/* Screen Dimentions */
-#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
-#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
-
-
 
 
 

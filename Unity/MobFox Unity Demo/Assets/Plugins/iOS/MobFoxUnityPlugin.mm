@@ -19,6 +19,7 @@ extern "C"
     @property NSMutableDictionary* ads;
     @property int nextId;
     @property NSString* gameObject;
+    @property (nonatomic,strong) MobFoxAd* banner;
     @property (nonatomic,strong) MobFoxInterstitialAd* inter;
     @property (nonatomic,strong) MobFoxNativeAd* mobfoxNativeAd;
     @property bool mUseLocation;
@@ -72,16 +73,26 @@ extern "C"
 
     [MobFoxAd locationServicesDisabled:!self.mUseLocation];
     
-    MobFoxAd* banner = [[MobFoxAd alloc] init:invh withFrame:placement];
-    banner.delegate = self;
+    self.banner = [[MobFoxAd alloc] init:invh withFrame:placement];
+    self.banner.delegate = self;
     NSString* key = [NSString stringWithFormat:@"key-%d",self.nextId];
-    [self.ads setValue:banner forKey:key];
+    [self.ads setValue:self.banner forKey:key];
     int cur = self.nextId;
     self.nextId= self.nextId + 1;
     //banner.type = @"video";
     
-    [banner loadAd];
+    [self.banner loadAd];
     return cur;
+}
+
+-(void) hideBanner
+{
+	if (self.banner!=nil) self.banner.hidden = TRUE;
+}
+
+-(void) showBanner
+{
+	if (self.banner!=nil) self.banner.hidden = FALSE;
 }
 
 //======================================================================================
@@ -271,6 +282,14 @@ extern "C"
                           sizeWidth:width
                          sizeHeight:height];
         
+    }
+    
+    void _hideBanner(){
+        [plugin hideBanner];
+    }
+    
+    void _showBanner(){
+        [plugin showBanner];
     }
     
     void _createInterstitial(const char* invh){

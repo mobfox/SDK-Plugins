@@ -17,12 +17,9 @@
 
 @protocol MobFoxInterstitialAdDelegate <NSObject>
 
-
-@required
+@optional
 
 - (void)MobFoxInterstitialAdDidLoad:(MobFoxInterstitialAd *)interstitial;
-
-@optional
 
 - (void)MobFoxInterstitialAdDidFailToReceiveAdWithError:(NSError *)error;
 
@@ -34,27 +31,22 @@
 
 - (void)MobFoxInterstitialAdFinished;
 
-
-
 @end
 
 
-@interface MobFoxInterstitialAd : NSObject<MobFoxAdDelegate,MobFoxInterstitialCustomEventDelegate, NSURLSessionDelegate, NSURLSessionDataDelegate, NSURLSessionTaskDelegate>
+@interface MobFoxInterstitialAd : NSObject<MobFoxAdDelegate,MobFoxInterstitialCustomEventDelegate>
 
 
 @property (nonatomic, weak) id<MobFoxInterstitialAdDelegate> delegate;
 @property (nonatomic, weak) UIViewController* rootViewController;
 
 @property BOOL ready;
-@property (strong, nonatomic) MobFoxAd* ad;
-@property (nonatomic, strong) LocationServicesManager *locationServicesManager;
-
+@property (weak, nonatomic) MobFoxAd* ad;
 
 -(id) init:(NSString*)invh;
 -(id) init:(NSString*)invh withRootViewController:(UIViewController*)root;
 -(void) loadAd;
 -(void) show;
-+ (void)locationServicesDisabled:(BOOL)disabled;
 
 
 

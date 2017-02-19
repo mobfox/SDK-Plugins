@@ -12,6 +12,12 @@ public class MobFox : MonoBehaviour
 	public static extern int _createBanner(string invh, float originX, float originY, float sizeWidth, float sizeHeight);
 
 	[DllImport("__Internal")]
+	public static extern void _hideBanner();
+
+	[DllImport("__Internal")]
+	public static extern void _showBanner();
+
+	[DllImport("__Internal")]
 	public static extern void _setGameObject(string gameObject);
 
 	[DllImport("__Internal")]
@@ -162,15 +168,6 @@ public class MobFox : MonoBehaviour
 		}
 	}
 
-	private void ShowMobFoxSmartBanner_Android()
-	{
-		if ((mobFoxPlugin != null) && (activityContext != null)) {
-			activityContext.Call("runOnUiThread", new AndroidJavaRunnable(() => {
-				mobFoxPlugin.Call("createSmartBanner", MobFoxBannerInventoryHash, 0, 0, 50);
-			}));
-		}
-	}
-
 	public void ShowMobFoxBanner()
 	{
 		Debug.Log ("### ShowMobFoxBanner ###");
@@ -184,18 +181,64 @@ public class MobFox : MonoBehaviour
 			ShowMobFoxBanner_iPhone ();
 		}
 	}
-		
-	public void ShowMobFoxSmartBanner()
+
+	//======================================================================================
+
+	private void HideMobFoxBanner_iPhone()
 	{
-		Debug.Log ("### ShowMobFoxBanner ###");
+		_hideBanner ();
+	}
+
+	private void HideMobFoxBanner_Android()
+	{
+		if ((mobFoxPlugin != null) && (activityContext != null)) {
+			activityContext.Call("runOnUiThread", new AndroidJavaRunnable(() => {
+				mobFoxPlugin.Call("hideBanner");
+			}));
+		}
+	}
+
+	public void HideMobFoxBanner()
+	{
+		Debug.Log ("### HideMobFoxBanner ###");
 
 		ConnectToPlugin ();
 
 		if (Application.platform == RuntimePlatform.Android)
 		{
-			ShowMobFoxSmartBanner_Android ();
+			HideMobFoxBanner_Android ();
 		} else {
-			return;
+			HideMobFoxBanner_iPhone ();
+		}
+	}
+
+	//======================================================================================
+
+	private void UnhideMobFoxBanner_iPhone()
+	{
+		_showBanner ();
+	}
+
+	private void UnhideMobFoxBanner_Android()
+	{
+		if ((mobFoxPlugin != null) && (activityContext != null)) {
+			activityContext.Call("runOnUiThread", new AndroidJavaRunnable(() => {
+				mobFoxPlugin.Call("showBanner");
+			}));
+		}
+	}
+
+	public void UnhideMobFoxBanner()
+	{
+		Debug.Log ("### HideMobFoxBanner ###");
+
+		ConnectToPlugin ();
+
+		if (Application.platform == RuntimePlatform.Android)
+		{
+			UnhideMobFoxBanner_Android ();
+		} else {
+			UnhideMobFoxBanner_iPhone ();
 		}
 	}
 
