@@ -1,7 +1,7 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{78539530-BE22-B01E-17C3-023CC68D6134}") = "MobFox Unity Demo", "Assembly-CSharp.csproj", "{81448E68-7C88-4274-3865-0F0F52D6B8E7}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobFox Unity Demo", "Assembly-CSharp.csproj", "{81448E68-7C88-4274-3865-0F0F52D6B8E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
