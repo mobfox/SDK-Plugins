@@ -7,6 +7,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -87,9 +88,11 @@ public class MobFoxPlugin
     //### B A N N E R                                           ###
     //#############################################################
 
-    public void createBanner(String myHash, int in_x, int in_y, int in_w, int in_h)
+    public void createBanner(String myHash, int in_x, int in_y, int in_w, int in_h, boolean smart)
     {
         Log.v(MYTAG,"dbg: ### createBanner ###");
+
+        showMessage("smart " + smart);
 
         if (MobFoxPlugin.mContext==null) return;
 
@@ -109,16 +112,39 @@ public class MobFoxPlugin
         mBanner = new Banner(MobFoxPlugin.mContext, in_w, in_h);
         if (mBanner!=null)
         {
-            final View v1 = ((Activity) MobFoxPlugin.mContext).getWindow().getDecorView().getRootView();
+//            final View v1 = ((Activity) MobFoxPlugin.mContext).getWindow().getDecorView().getRootView();
+            final ViewGroup v1 = (ViewGroup) ((ViewGroup) ((Activity) MobFoxPlugin.mContext)
+                    .findViewById(android.R.id.content)).getChildAt(0);
+
+//            int width = v1.getWidth();
+//            int height = v1.getHeight();
+//            showMessage("width " + width + ", height " + height);
+
             if (v1!=null)
             {
-                RelativeLayout.LayoutParams bannerParameters =
-                        new RelativeLayout.LayoutParams(w,h);
-                bannerParameters.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-                bannerParameters.addRule(RelativeLayout.ALIGN_PARENT_TOP);
-                bannerParameters.setMargins(x, y, 0, 0);
+//                showMessage("v1 " + v1.getClass().getName());
 
-                ((ViewGroup)v1).addView(mBanner,bannerParameters);
+//                RelativeLayout parent = new RelativeLayout(mContext);
+//                RelativeLayout.LayoutParams parentParams = new RelativeLayout.LayoutParams(v1.getWidth(), v1.getHeight());
+//                parentParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+//                parentParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+//                parent.setLayoutParams(parentParams);
+//                ((ViewGroup)v1).addView(parent);
+
+//                RelativeLayout.LayoutParams bannerParameters =
+//                        new RelativeLayout.LayoutParams(w,h);
+//                bannerParameters.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+//                bannerParameters.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+//                bannerParameters.setMargins(x, y, 0, 0);
+//                mBanner.setLayoutParams(bannerParameters);
+//                parent.addView(mBanner);
+
+                FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(w,h);
+                params.setMargins(x, y, 0, 0);
+
+//                showMessage("x " + x + ", y " + y);
+
+                ((ViewGroup)v1).addView(mBanner,params);
             }
 
             Log.v(MYTAG,"dbg: ### banner allocated ###");
