@@ -93,7 +93,7 @@ public class MobFoxPlugin
     {
         Log.v(MYTAG,"dbg: ### createBanner ###");
 
-        showMessage("smart " + smart);
+//        showMessage("smart " + smart);
 
         if (MobFoxPlugin.mContext==null) return;
 
@@ -112,7 +112,6 @@ public class MobFoxPlugin
 
         final ViewGroup v1 = (ViewGroup) ((ViewGroup) ((Activity) MobFoxPlugin.mContext)
                 .findViewById(android.R.id.content)).getChildAt(0);
-        int full_w = MobFoxPlugin.CalcDPIToReal(MobFoxPlugin.mContext, v1.getWidth());
 
         mBanner = new Banner(MobFoxPlugin.mContext, in_w, in_h);
 
@@ -127,43 +126,22 @@ public class MobFoxPlugin
             {
 //                showMessage("v1 type " + v1.getClass().getName());
 
-//                RelativeLayout.LayoutParams bannerParameters =
-//                        new RelativeLayout.LayoutParams(w,h);
-//                bannerParameters.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-//                bannerParameters.addRule(RelativeLayout.ALIGN_PARENT_TOP);
-//                bannerParameters.setMargins(x, y, 0, 0);
-//                mBanner.setLayoutParams(bannerParameters);
-//                parent.addView(mBanner);
-
-                showMessage("full_w " + full_w);
-
                 FrameLayout.LayoutParams params;
 
                 if (smart) {
                     RelativeLayout rl = new RelativeLayout(mContext);
                     rl.setBackgroundColor(Color.parseColor("#000000"));
-                    RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(full_w, h);
+                    RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(v1.getWidth(), h);
                     lp.topMargin = y;
                     rl.setLayoutParams(lp);
                     v1.addView(rl);
 
                     RelativeLayout.LayoutParams bParams = new RelativeLayout.LayoutParams(w, h);
                     int left = (v1.getWidth() - w) / 2;
-                    showMessage("left " + left);
 
                     bParams.leftMargin = left;
                     rl.addView(mBanner, bParams);
 
-//                    RelativeLayout.LayoutParams bParams = new RelativeLayout.LayoutParams(w, h);
-//                    bParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
-//                    mBanner.setLayoutParams(bParams);
-
-//                    rl.addView(mBanner);
-
-//                    params = new FrameLayout.LayoutParams(w, h);
-//                    params.setMargins(50, 0, 0, 0);
-
-//                    rl.addView(mBanner, params);
                 } else {
                     params = new FrameLayout.LayoutParams(w, h);
                     params.setMargins(x, y, 0, 0);

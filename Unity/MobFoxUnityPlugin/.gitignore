@@ -7,4 +7,5 @@
 /build
 /captures
 .externalNativeBuild
+../MobFox-Unity-Demo/Temp/*
 ../MobFox-Unity-Demo/Temp
