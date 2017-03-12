@@ -2,6 +2,7 @@ package com.mobfox.unity.plugin;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -109,27 +110,22 @@ public class MobFoxPlugin
         // removed after build 1.02: "setLocation" is done in the manifest
         //Banner.setGetLocation(MobFoxPlugin.mUseLocation);
 
+        final ViewGroup v1 = (ViewGroup) ((ViewGroup) ((Activity) MobFoxPlugin.mContext)
+                .findViewById(android.R.id.content)).getChildAt(0);
+        int full_w = MobFoxPlugin.CalcDPIToReal(MobFoxPlugin.mContext, v1.getWidth());
+
         mBanner = new Banner(MobFoxPlugin.mContext, in_w, in_h);
+
         if (mBanner!=null)
         {
-//            final View v1 = ((Activity) MobFoxPlugin.mContext).getWindow().getDecorView().getRootView();
-            final ViewGroup v1 = (ViewGroup) ((ViewGroup) ((Activity) MobFoxPlugin.mContext)
-                    .findViewById(android.R.id.content)).getChildAt(0);
 
 //            int width = v1.getWidth();
 //            int height = v1.getHeight();
-//            showMessage("width " + width + ", height " + height);
+//            showMessage("unity activity width " + width + ", height " + height);
 
             if (v1!=null)
             {
-//                showMessage("v1 " + v1.getClass().getName());
-
-//                RelativeLayout parent = new RelativeLayout(mContext);
-//                RelativeLayout.LayoutParams parentParams = new RelativeLayout.LayoutParams(v1.getWidth(), v1.getHeight());
-//                parentParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-//                parentParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
-//                parent.setLayoutParams(parentParams);
-//                ((ViewGroup)v1).addView(parent);
+//                showMessage("v1 type " + v1.getClass().getName());
 
 //                RelativeLayout.LayoutParams bannerParameters =
 //                        new RelativeLayout.LayoutParams(w,h);
@@ -139,12 +135,40 @@ public class MobFoxPlugin
 //                mBanner.setLayoutParams(bannerParameters);
 //                parent.addView(mBanner);
 
-                FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(w,h);
-                params.setMargins(x, y, 0, 0);
+                showMessage("full_w " + full_w);
 
-//                showMessage("x " + x + ", y " + y);
+                FrameLayout.LayoutParams params;
 
-                ((ViewGroup)v1).addView(mBanner,params);
+                if (smart) {
+                    RelativeLayout rl = new RelativeLayout(mContext);
+                    rl.setBackgroundColor(Color.parseColor("#000000"));
+                    RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(full_w, h);
+                    lp.topMargin = y;
+                    rl.setLayoutParams(lp);
+                    v1.addView(rl);
+
+                    RelativeLayout.LayoutParams bParams = new RelativeLayout.LayoutParams(w, h);
+                    int left = (v1.getWidth() - w) / 2;
+                    showMessage("left " + left);
+
+                    bParams.leftMargin = left;
+                    rl.addView(mBanner, bParams);
+
+//                    RelativeLayout.LayoutParams bParams = new RelativeLayout.LayoutParams(w, h);
+//                    bParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
+//                    mBanner.setLayoutParams(bParams);
+
+//                    rl.addView(mBanner);
+
+//                    params = new FrameLayout.LayoutParams(w, h);
+//                    params.setMargins(50, 0, 0, 0);
+
+//                    rl.addView(mBanner, params);
+                } else {
+                    params = new FrameLayout.LayoutParams(w, h);
+                    params.setMargins(x, y, 0, 0);
+                    v1.addView(mBanner, params);
+                }
             }
 
             Log.v(MYTAG,"dbg: ### banner allocated ###");
