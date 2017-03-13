@@ -94,6 +94,7 @@ public class MobFoxPlugin
         Log.v(MYTAG,"dbg: ### createBanner ###");
 
 //        showMessage("smart " + smart);
+//        showMessage("size: " + in_w + "x" + in_h);
 
         if (MobFoxPlugin.mContext==null) return;
 

@@ -35,7 +35,9 @@ public class MobFox : MonoBehaviour
 	[SerializeField] string MobFoxNativeInventoryHash       = "80187188f458cfde788d961b6882fd53";
 	[SerializeField] int top 								= 0;
 	[SerializeField] int left 								= 0;
-	[SerializeField] bool smart 							= false;
+	[SerializeField] int width 								= 320;
+	[SerializeField] int height 							= 50;
+//	[SerializeField] bool smart 							= false;
 	[SerializeField] string MobFoxGameObjectName            = "MobFoxObject";
 
 	bool useLocation = false;
@@ -167,7 +169,7 @@ public class MobFox : MonoBehaviour
 		if ((mobFoxPlugin != null) && (activityContext != null)) {
 			activityContext.Call("runOnUiThread", new AndroidJavaRunnable(() => {
 //				ShowToast("top " + top + ", left " + left);
-				mobFoxPlugin.Call("createBanner", MobFoxBannerInventoryHash, left, top, 320, 50, smart);
+				mobFoxPlugin.Call("createBanner", MobFoxBannerInventoryHash, left, top, width, height, false);
 			}));
 		}
 	}
