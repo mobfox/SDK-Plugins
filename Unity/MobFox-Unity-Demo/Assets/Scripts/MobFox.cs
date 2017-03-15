@@ -161,7 +161,7 @@ public class MobFox : MonoBehaviour
 
 	private void ShowMobFoxBanner_iPhone()
 	{
-		_createBanner (MobFoxBannerInventoryHash, 0, 0, 320, 50);
+		_createBanner (MobFoxBannerInventoryHash, left, top, width, height);
 	}
 
 	private void ShowMobFoxBanner_Android()
