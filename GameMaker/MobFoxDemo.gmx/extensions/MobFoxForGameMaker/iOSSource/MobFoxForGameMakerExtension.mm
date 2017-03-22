@@ -1,5 +1,4 @@
 #import "MobFoxForGameMakerExtension.h"
-#import "iToast.h"
 #include <asl.h>
 #include <stdio.h>
 
@@ -55,11 +54,31 @@ extern void CreateAsynEventWithDSMap(int dsmapindex, int event_index);
 
 - (void)ShowToast:(NSString *)text
 {
-    [[[[[[iToast makeText:text]
-         setGravity:iToastGravityBottom]
-        setDuration:iToastDurationLong]
-       setCornerRadius:0.0]
-      setWithAction:TRUE] show];
+	  if (mToast!=nil)
+	  {
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 100), dispatch_get_main_queue(), ^{
+			[mToast dismissWithClickedButtonIndex:0 animated:YES];
+			mToast = nil;
+			[self ShowToast:text];
+		});
+		return;
+	  }
+	  
+	  mToast = [[UIAlertView alloc] initWithTitle:nil
+                                          message:text
+                                         delegate:nil
+                                cancelButtonTitle:nil
+                                otherButtonTitles:nil, nil];
+      [mToast show];
+
+    int duration = 2; // duration in seconds
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [mToast dismissWithClickedButtonIndex:0 animated:YES];
+		mToast = nil;
+    });
+
+
 }
 
 //======================================================================================
@@ -106,12 +125,6 @@ extern void CreateAsynEventWithDSMap(int dsmapindex, int event_index);
     int      in_w    = (int)arg3;
     int      in_h    = (int)arg4;
         
-	// mytodo: check why this is required, and fix?
-    if (in_h==50)
-    {
-        in_h = 51;
-    }
-
 	CGFloat originX    = (CGFloat)in_x;
     CGFloat originY    = (CGFloat)in_y;
     CGFloat sizeWidth  = (CGFloat)in_w;
@@ -142,7 +155,32 @@ extern void CreateAsynEventWithDSMap(int dsmapindex, int event_index);
     mBanner.hidden = TRUE;
     
     [mBanner loadAd];
-    [self ShowToast:@"createBanner"];
+    
+	return 0;
+}
+
+- (double) hide_banner
+{
+	NSLog(@"yoyo: hide_banner"); 
+    
+	if (!mBanner){
+        return 1;
+    }
+	
+	mBanner.hidden=TRUE;
+
+	return 0;
+}
+
+- (double) unhide_banner
+{
+	NSLog(@"yoyo: unhide_banner"); 
+    
+	if (!mBanner){
+        return 1;
+    }
+	
+	mBanner.hidden=FALSE;
 
 	return 0;
 }
@@ -191,12 +229,10 @@ extern void CreateAsynEventWithDSMap(int dsmapindex, int event_index);
     
     mInterstitial = [[MobFoxInterstitialAd alloc] init:myHash withRootViewController:[self vc]];
     
-    mInterstitial.ad.demo_gender = @"f";
-    mInterstitial.delegate = self;
+     mInterstitial.delegate = self;
     
     [mInterstitial loadAd];
     
-    [self ShowToast:@"createInterstitial"];
 
 	return 0;
 }
@@ -206,12 +242,10 @@ extern void CreateAsynEventWithDSMap(int dsmapindex, int event_index);
 	NSLog(@"yoyo: show_interstitial"); 
     
 	if (!mInterstitial){
-        [self ShowToast:@"showInterstitial: not init"];
         return 1;
     }
     
     if (mInterstitial.ready){
-        [self ShowToast:@"showInterstitial"];
         [mInterstitial show];
     }
 

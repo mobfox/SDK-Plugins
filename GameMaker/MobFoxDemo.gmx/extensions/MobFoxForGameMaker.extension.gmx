@@ -138,6 +138,24 @@ compile 'com.google.android.gms:play-services-ads:9.0.2'
             <arg>1</arg>
           </args>
         </function>
+        <function>
+          <name>hide_banner</name>
+          <externalName>hide_banner</externalName>
+          <kind>11</kind>
+          <help>hide_banner()</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>unhide_banner</name>
+          <externalName>unhide_banner</externalName>
+          <kind>11</kind>
+          <help>unhide_banner()</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
       </functions>
       <constants/>
     </file>

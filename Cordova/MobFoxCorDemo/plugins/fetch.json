@@ -22,5 +22,13 @@
         },
         "is_top_level": false,
         "variables": {}
+    },
+    "com.mobfox.cordova": {
+        "source": {
+            "type": "local",
+            "path": "../MobFoxCorPlugin"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

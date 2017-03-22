@@ -12,7 +12,15 @@
 	});
  
     $('#show-banner').click(function(){
- 		MobFoxPlugin.showBanner('8769bb5eb962eb39170fc5d8930706a9', 0, 24, 320, 50);
+ 		MobFoxPlugin.showBanner('fe96717d9875b9da4339ea5367eff1ec', 20, 44, 320, 50);
+    });
+ 
+    $('#hide-banner').click(function(){
+ 		MobFoxPlugin.hideBanner();
+    });
+ 
+    $('#unhide-banner').click(function(){
+ 		MobFoxPlugin.unhideBanner();
     });
  
     $('#show-interstitial').click(function(){
@@ -20,7 +28,7 @@
     });
  
     $('#show-native').click(function(){
- 		MobFoxPlugin.createNative('80187188f458cfde788d961b6882fd53');
+ 		MobFoxPlugin.createNative('a764347547748896b84e0b8ccd90fd62');
     });
     
     $('#use-location').click(function(){    
@@ -132,7 +140,7 @@
 	
 	function onNativeLoaded(e)
 	{
-		MobFoxPlugin.showToast('### Native loaded ###');
+		MobFoxPlugin.showToast('### Native loaded: '+e.detail.message);
 		
 		var array = e.detail.message.split('|');
 		array.forEach(function myFunction(item, index) {

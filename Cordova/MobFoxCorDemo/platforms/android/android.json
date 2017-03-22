@@ -11,14 +11,60 @@
                         {
                             "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"AdMob\"><param name=\"android-package\" value=\"com.rjfun.cordova.admob.AdMobPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"MobFoxPlugin\"><param name=\"android-package\" value=\"MobFoxPlugin\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
             },
             "AndroidManifest.xml": {
                 "parents": {
-                    "/manifest/application": [],
-                    "/*": []
+                    "/manifest/application": [
+                        {
+                            "xml": "<activity android:configChanges=\"keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize\" android:name=\"com.google.android.gms.ads.AdActivity\" android:theme=\"@android:style/Theme.Translucent\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<activity android:name=\"com.mobfox.sdk.interstitialads.InterstitialActivity\" />",
+                            "count": 1
+                        }
+                    ],
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
+                            "count": 2
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+                            "count": 2
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+                            "count": 1
+                        }
+                    ]
                 }
             }
         }
@@ -26,11 +72,40 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.mobfox.cordova.demo"
+        },
+        "cordova-plugin-extension": {
+            "PACKAGE_NAME": "com.mobfox.cordova.demo"
+        },
+        "cordova-plugin-admobpro": {
+            "PACKAGE_NAME": "com.mobfox.cordova.demo"
+        },
+        "com.mobfox.cordova": {
+            "PACKAGE_NAME": "com.mobfox.cordova.demo"
         }
     },
     "dependent_plugins": {},
-    "modules": [],
+    "modules": [
+        {
+            "id": "cordova-plugin-admobpro.AdMob",
+            "file": "plugins/cordova-plugin-admobpro/www/AdMob.js",
+            "pluginId": "cordova-plugin-admobpro",
+            "clobbers": [
+                "window.AdMob"
+            ]
+        },
+        {
+            "id": "com.mobfox.cordova.MobFoxPlugin",
+            "file": "plugins/com.mobfox.cordova/www/MobFoxPlugin.js",
+            "pluginId": "com.mobfox.cordova",
+            "clobbers": [
+                "MobFoxPlugin"
+            ]
+        }
+    ],
     "plugin_metadata": {
-        "cordova-plugin-whitelist": "1.2.2"
+        "cordova-plugin-whitelist": "1.2.2",
+        "cordova-plugin-extension": "1.5.1",
+        "cordova-plugin-admobpro": "2.28.3",
+        "com.mobfox.cordova": "1.0.2"
     }
 }

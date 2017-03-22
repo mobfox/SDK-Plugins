@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		xmlns:s="library://ns.adobe.com/flex/spark" title="MobFox Adobe-Air Demo 1.01.06"
+		xmlns:s="library://ns.adobe.com/flex/spark" title="MobFox Adobe-Air Demo 1.01.07"
 		creationComplete="init()">
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
@@ -15,9 +15,11 @@
 			private var controller:MobFoxPluginController = MobFoxPluginController.instance;
 			
 			// Put your inventory id here:
-			private var myBannerHash:String       = "8769bb5eb962eb39170fc5d8930706a9";
+			//private var myBannerHash:String       = "8769bb5eb962eb39170fc5d8930706a9";
+			private var myBannerHash:String       = "fe96717d9875b9da4339ea5367eff1ec";
 			private var myInterstitialHash:String = "267d72ac3f77a3f447b32cf7ebf20673";
-			private var myNativeHash:String       = "80187188f458cfde788d961b6882fd53";
+			private var myNativeHash:String       = "a764347547748896b84e0b8ccd90fd62";
+			//private var myNativeHash:String       = "80187188f458cfde788d961b6882fd53";
 			//private var myNativeHash:String       = "1122334455667788788d961b6882fd53";
 
 			private var clickUrl:String = "";
@@ -173,7 +175,21 @@
 				trace( "Show BANNER" );
 				controller.showToastText("onShowBannerPressed");
 				
-				controller.createBanner(myBannerHash, 0, 50, 320, 50);
+				controller.createBanner(myBannerHash, 20, 50, 320, 50);
+			}
+			
+			private function onHideBannerPressed( event:Event ):void {
+				trace( "Hide BANNER" );
+				controller.showToastText("onHideBannerPressed");
+				
+				controller.hideBanner();
+			}
+			
+			private function onUnhideBannerPressed( event:Event ):void {
+				trace( "Unhide BANNER" );
+				controller.showToastText("onUnhideBannerPressed");
+				
+				controller.unhideBanner();
 			}
 			
 			private function onShowInterstitialPressed( event:Event ):void {
@@ -208,6 +224,11 @@
 		
 		<s:HGroup width="400" verticalAlign="top" horizontalAlign="left">
 			<s:Button label="Banner" click="onShowBannerPressed(event)" styleName="next"/>   
+			<s:Button label="Hide" click="onHideBannerPressed(event)" styleName="next"/>   
+			<s:Button label="Unhide" click="onUnhideBannerPressed(event)" styleName="next"/>   
+		</s:HGroup>
+		
+		<s:HGroup width="400" verticalAlign="top" horizontalAlign="left">
 			<s:Button label="Interstitial" click="onShowInterstitialPressed(event)" styleName="next"/>   
 			<s:Button label="Native" click="onShowNativePressed(event)" styleName="next"/>   
 		</s:HGroup>

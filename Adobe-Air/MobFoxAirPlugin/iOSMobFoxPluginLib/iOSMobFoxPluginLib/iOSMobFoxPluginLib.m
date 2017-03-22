@@ -53,12 +53,6 @@ FREObject createBanner(FREContext ctx, void* funcData, uint32_t argc, FREObject 
 
     if (myHash!=nil)
     {
-        // mytodo: check why this is required, and fix?
-        if (in_h==50)
-        {
-            in_h = 51;
-        }
-
         CGFloat originX    = (CGFloat)in_x;
         CGFloat originY    = (CGFloat)in_y;
         CGFloat sizeWidth  = (CGFloat)in_w;
@@ -75,6 +69,24 @@ FREObject createBanner(FREContext ctx, void* funcData, uint32_t argc, FREObject 
         
         [[iOSMobFoxPluginLibWrapper sharediOSMobFoxPluginLibWrapper] createBanner:myHash at:placement];
     }
+    
+    return NULL;
+}
+
+FREObject hideBanner(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[])
+{
+    NSLog(@"dbg: ### MobFoxUnityPlugin >> hideBanner");
+    
+    [[iOSMobFoxPluginLibWrapper sharediOSMobFoxPluginLibWrapper] hideBanner];
+    
+    return NULL;
+}
+
+FREObject unhideBanner(FREContext ctx, void* funcData, uint32_t argc, FREObject argv[])
+{
+    NSLog(@"dbg: ### MobFoxUnityPlugin >> unhideBanner");
+    
+    [[iOSMobFoxPluginLibWrapper sharediOSMobFoxPluginLibWrapper] unhideBanner];
     
     return NULL;
 }
@@ -174,21 +186,29 @@ void PluginExtContextInitializer(void* extData, const uint8_t* ctxType, FREConte
     func[2].functionData = NULL;
     func[2].function = &createBanner;
     
-    func[3].name = (const uint8_t*) "createInterstitial";
+    func[3].name = (const uint8_t*) "hideBanner";
     func[3].functionData = NULL;
-    func[3].function = &createInterstitial;
+    func[3].function = &hideBanner;
     
-    func[4].name = (const uint8_t*) "showInterstitial";
+    func[4].name = (const uint8_t*) "unhideBanner";
     func[4].functionData = NULL;
-    func[4].function = &showInterstitial;
+    func[4].function = &unhideBanner;
     
-    func[5].name = (const uint8_t*) "setUseLocation";
+    func[5].name = (const uint8_t*) "createInterstitial";
     func[5].functionData = NULL;
-    func[5].function = &setUseLocation;
+    func[5].function = &createInterstitial;
     
-    func[6].name = (const uint8_t*) "createNative";
+    func[6].name = (const uint8_t*) "showInterstitial";
     func[6].functionData = NULL;
-    func[6].function = &createNative;
+    func[6].function = &showInterstitial;
+    
+    func[7].name = (const uint8_t*) "setUseLocation";
+    func[7].functionData = NULL;
+    func[7].function = &setUseLocation;
+    
+    func[8].name = (const uint8_t*) "createNative";
+    func[8].functionData = NULL;
+    func[8].function = &createNative;
     
     *functionsToSet = func;
 }

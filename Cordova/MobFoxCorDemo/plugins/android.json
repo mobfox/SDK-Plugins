@@ -9,7 +9,17 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.mobfox.cordova.demo"
+        },
+        "com.mobfox.cordova": {
+            "PACKAGE_NAME": "com.mobfox.cordova.demo"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-extension": {
+            "PACKAGE_NAME": "com.mobfox.cordova.demo"
+        },
+        "cordova-plugin-admobpro": {
+            "PACKAGE_NAME": "com.mobfox.cordova.demo"
+        }
+    }
 }

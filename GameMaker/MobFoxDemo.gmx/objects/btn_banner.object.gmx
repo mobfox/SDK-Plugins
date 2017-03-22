@@ -29,7 +29,7 @@
 
 set_use_location(0);
 
-create_banner("8769bb5eb962eb39170fc5d8930706a9",0,0,320,50);
+create_banner("fe96717d9875b9da4339ea5367eff1ec",20,40,320,50);
 
 </string>
           </argument>

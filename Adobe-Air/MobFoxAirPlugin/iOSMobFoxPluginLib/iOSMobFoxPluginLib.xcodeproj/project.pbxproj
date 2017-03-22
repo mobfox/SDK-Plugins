@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		28167C4F1D8E943C00257826 /* iOSMobFoxPluginLibWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 28167C4E1D8E943C00257826 /* iOSMobFoxPluginLibWrapper.m */; };
 		281C43961D8719DE005E11F6 /* iOSMobFoxPluginLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 281C43951D8719DE005E11F6 /* iOSMobFoxPluginLib.m */; };
-		28296AEE1E23C3BB00E8981B /* MobFoxSDKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28296AED1E23C3BB00E8981B /* MobFoxSDKCore.framework */; };
 		282B6F611D8EAC430073EF2B /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 282B6F5F1D8EAC430073EF2B /* iToast.m */; };
+		286B8E4F1E7EFECE0053A24A /* MobFoxSDKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286B8E4E1E7EFECE0053A24A /* MobFoxSDKCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,9 +31,9 @@
 		281C43901D8719DE005E11F6 /* libiOSMobFoxPluginLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiOSMobFoxPluginLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		281C43951D8719DE005E11F6 /* iOSMobFoxPluginLib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSMobFoxPluginLib.m; sourceTree = "<group>"; };
 		281C439C1D871C42005E11F6 /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashRuntimeExtensions.h; sourceTree = "<group>"; };
-		28296AED1E23C3BB00E8981B /* MobFoxSDKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobFoxSDKCore.framework; path = iOSMobFoxPluginLib/MobFoxSDKCore.framework; sourceTree = "<group>"; };
 		282B6F5F1D8EAC430073EF2B /* iToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iToast.m; sourceTree = "<group>"; };
 		282B6F601D8EAC430073EF2B /* iToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iToast.h; sourceTree = "<group>"; };
+		286B8E4E1E7EFECE0053A24A /* MobFoxSDKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobFoxSDKCore.framework; path = iOSMobFoxPluginLib/MobFoxSDKCore.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28296AEE1E23C3BB00E8981B /* MobFoxSDKCore.framework in Frameworks */,
+				286B8E4F1E7EFECE0053A24A /* MobFoxSDKCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,7 +81,7 @@
 		289969991D91061D009A0C78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				28296AED1E23C3BB00E8981B /* MobFoxSDKCore.framework */,
+				286B8E4E1E7EFECE0053A24A /* MobFoxSDKCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

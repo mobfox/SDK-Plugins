@@ -21,6 +21,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import java.util.List;
@@ -162,13 +163,17 @@ public class MobFoxForGameMakerExtension {
     		final View v1 = RunnerActivity.CurrentActivity.getWindow().getDecorView().getRootView();
     		if (v1!=null)
     		{
-    	    	RelativeLayout.LayoutParams bannerParameters =
-        	            new RelativeLayout.LayoutParams(w,h);
-    	    	bannerParameters.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-    	    	bannerParameters.addRule(RelativeLayout.ALIGN_PARENT_TOP);   
-    	    	bannerParameters.setMargins(x, y, 0, 0);
+    	    	FrameLayout.LayoutParams bannerParameters =
+        	            new FrameLayout.LayoutParams(w,h);
+				bannerParameters.leftMargin=x;
+				bannerParameters.topMargin=y;
+    	    	//bannerParameters.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+    	    	//bannerParameters.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);   
+    	    	//bannerParameters.setMargins(x, y, 0, 0);
 
-    			((ViewGroup)v1).addView(mBanner,bannerParameters);
+    			((FrameLayout)v1).addView(mBanner,bannerParameters);
+				
+				//mBanner.setLeft(x);
     		}
         	
     		if (MobFoxForGameMakerExtension.mUseLocation)
@@ -185,6 +190,49 @@ public class MobFoxForGameMakerExtension {
     		mBanner.load();
         }
 	}
+	
+	//-----------------------------------------------------------------------
+	
+	public double hide_banner()
+	{
+		Log.i("yoyo", "dbg: ### HIDE banner ###");
+			
+		RunnerActivity.ViewHandler.post( new Runnable() {
+    	public void run() 
+    	{	
+			hideBanner(true);
+    	}});
+        return 0;
+    }
+
+	public double unhide_banner()
+	{
+		Log.i("yoyo", "dbg: ### UNHIDE banner ###");
+			
+		RunnerActivity.ViewHandler.post( new Runnable() {
+    	public void run() 
+    	{	
+			hideBanner(false);
+    	}});
+        return 0;
+    }
+
+	public void hideBanner(boolean bHide)
+    {
+		if (MobFoxForGameMakerExtension.mContext==null)
+		{
+			Log.i("yoyo", "dbg: ### hideBanner, CONTEXT==NULL ###");
+			return;
+		}
+
+    	if (mBanner==null) return;
+    	
+    	Log.i("yoyo","dbg: ### hideBanner ###");
+		
+    	mBanner.setVisibility(bHide?View.GONE:View.VISIBLE);
+    }
+
+
 	
 	//=======================================================================
 	
@@ -410,8 +458,6 @@ public class MobFoxForGameMakerExtension {
     public void createNative(String myHash)
     {
 		Log.i("yoyo", "dbg: ### createNative... ###");
-		
-		show_toast("IN NATIVE!");
 		
 		if (MobFoxForGameMakerExtension.mContext==null)
 		{

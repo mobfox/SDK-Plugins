@@ -55,6 +55,8 @@
     <instance objName="btn_interstitial" x="256" y="416" name="inst_70A1C532" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="img_logo" x="128" y="192" name="inst_855E7EEA" locked="0" code="" scaleX="0.600000023841858" scaleY="0.639999985694885" colour="4294967295" rotation="0"/>
     <instance objName="btn_native" x="416" y="416" name="inst_9AA6D951" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="btn_hide_banner" x="96" y="608" name="inst_FCC94476" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="btn_unhide_banner" x="96" y="704" name="inst_2F1EE166" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

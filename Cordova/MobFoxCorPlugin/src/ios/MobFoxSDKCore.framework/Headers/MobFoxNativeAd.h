@@ -12,6 +12,7 @@
 #import <UIKit/UIKit.h>
 #import "MobFoxNativeCustomEvent.h"
 #import "MobFoxNativeData.h"
+#import "MFExceptionHandler.h"
 
 
 @class MobFoxNativeAd;
@@ -19,18 +20,24 @@
 
 @protocol MobFoxNativeAdDelegate <NSObject>
 
+@required
+
 - (void)MobFoxNativeAdDidLoad:(MobFoxNativeAd*)ad withAdData:(MobFoxNativeData *)adData;
+
+@optional
 
 - (void)MobFoxNativeAdDidFailToReceiveAdWithError:(NSError *)error;
 
 @end
 
-@interface MobFoxNativeAd : NSObject<MobFoxNativeCustomEventDelegate>
+@interface MobFoxNativeAd : NSObject <MobFoxNativeCustomEventDelegate>
 
-    @property (nonatomic, weak) id<MobFoxNativeAdDelegate> delegate;
+    @property (nonatomic, weak) id <MobFoxNativeAdDelegate> delegate;
     
     @property (nonatomic, copy) NSString* longitude;
     @property (nonatomic, copy) NSString* latitude;
+    @property (nonatomic, copy) NSString* accuracy;
+
     @property (nonatomic, copy) NSString* demo_gender; //"m/f"
     @property (nonatomic, copy) NSString* demo_age;
     @property (nonatomic, copy) NSString* s_subid;
@@ -41,8 +48,10 @@
     @property (nonatomic, copy) NSString* v_dur_max;
     @property (nonatomic, copy) NSString* r_floor;
     @property (nonatomic, strong) NSString* invh;
-    @property (nonatomic, strong) NSString* serverURL;;
+    @property (nonatomic, strong) NSString* serverURL;
 
+    // new properties (required for 1.1)
+    //@property (nonatomic, strong) NSString* i_ipaddress;
 
 
     - (id) init:(NSString*)invh;

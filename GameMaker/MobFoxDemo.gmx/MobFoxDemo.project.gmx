@@ -35,6 +35,8 @@
     <sprite>sprites\sprt_interstitial</sprite>
     <sprite>sprites\sprt_logo</sprite>
     <sprite>sprites\sprt_native</sprite>
+    <sprite>sprites\sprt_hide_banner</sprite>
+    <sprite>sprites\sprt_unhide_banner</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -43,6 +45,8 @@
     <object>objects\btn_interstitial</object>
     <object>objects\img_logo</object>
     <object>objects\btn_native</object>
+    <object>objects\btn_hide_banner</object>
+    <object>objects\btn_unhide_banner</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_main</room>

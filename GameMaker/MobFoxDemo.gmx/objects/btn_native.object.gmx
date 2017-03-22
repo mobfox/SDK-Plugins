@@ -29,7 +29,7 @@
 
 //@@@set_use_location(0);
 
-create_native("80187188f458cfde788d961b6882fd53");
+create_native("a764347547748896b84e0b8ccd90fd62");
 
 </string>
           </argument>
@@ -144,11 +144,7 @@ create_native("80187188f458cfde788d961b6882fd53");
             
         }
 
-        show_toast("Title: "+szTitle);
-        show_toast("Body: "+szBody);
-        show_toast("Icon: "+szIconUrl);
-        show_toast("Main: "+szMainUrl);
-        show_toast("Click: "+szClickUrl);
+        show_toast("Click: "+szClickUrl+"\nBody: "+szBody+"\nIcon: "+szIconUrl+"\nMain: "+szMainUrl+"\nClick: "+szClickUrl);
 
         global.nativeTitle = szTitle;
         global.nativeIcon  = szIconUrl;

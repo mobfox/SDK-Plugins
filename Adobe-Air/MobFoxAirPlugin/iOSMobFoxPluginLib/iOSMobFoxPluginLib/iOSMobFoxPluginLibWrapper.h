@@ -23,6 +23,9 @@
 
 - (void)createBanner:(NSString *)myHash at:(CGRect)placement;
 
+- (void)hideBanner;
+- (void)unhideBanner;
+
 //----------------------------
 
 - (void)createInterstitial:(NSString *)myHash;

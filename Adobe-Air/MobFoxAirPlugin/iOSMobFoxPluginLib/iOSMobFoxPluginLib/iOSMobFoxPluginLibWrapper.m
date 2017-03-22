@@ -51,6 +51,18 @@
       setWithAction:TRUE] show];
 }
 
+//========================================================================================
+
+- (void)ShowAlert:(NSString *)txt
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"debug"
+                                                    message:txt
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
 //======================================================================================
 //======  I N I T                                                                 ======
 //======================================================================================
@@ -60,7 +72,7 @@
     
     mUseLocation = false;
     
-    [self ShowToast:@"Plugin: init"];
+    //@@@[self ShowToast:@"Plugin: init"];
 }
 
 //======================================================================================
@@ -95,7 +107,23 @@
     mBanner.hidden = TRUE;
     
     [mBanner loadAd];
-    [self ShowToast:@"createBanner"];
+    //@@@[self ShowToast:@"createBanner"];
+}
+
+- (void)hideBanner
+{
+    if (mBanner!=nil)
+    {
+        mBanner.hidden = TRUE;
+    }
+}
+
+- (void)unhideBanner
+{
+    if (mBanner!=nil)
+    {
+        mBanner.hidden = FALSE;
+    }
 }
 
 //======================================================================================
@@ -109,7 +137,7 @@
 }
 
 - (void)MobFoxAdDidFailToReceiveAdWithError:(NSError *)error{
-    
+
     [self dispatchMobFoxEventWithName:@"bannerError" andData:[error description]];
 }
 
@@ -138,23 +166,22 @@
     
     mInterstitial = [[MobFoxInterstitialAd alloc] init:myHash withRootViewController:[self vc]];
     
-    mInterstitial.ad.demo_gender = @"f";
     mInterstitial.delegate = self;
     
     [mInterstitial loadAd];
     
-    [self ShowToast:@"createInterstitial?"];
+    //@@@[self ShowToast:@"createInterstitial"];
 }
 
 - (void)showInterstitial
 {
     if (!mInterstitial){
-        [self ShowToast:@"showInterstitial: not init"];
+        //@@@[self ShowToast:@"showInterstitial: not init"];
         return;
     }
     
     if (mInterstitial.ready){
-        [self ShowToast:@"showInterstitial"];
+        //@@@[self ShowToast:@"showInterstitial"];
         [mInterstitial show];
     }
 }
@@ -193,7 +220,7 @@
 
 - (void)createNative:(NSString *)myHash
 {
-    [self ShowToast:[NSString stringWithFormat:@"*** createNative: %@",myHash]];
+    //@@@[self ShowToast:[NSString stringWithFormat:@"*** createNative: %@",myHash]];
 
     [MobFoxNativeAd locationServicesDisabled:!mUseLocation];
     
@@ -216,7 +243,7 @@
     if (adData==nil)
     {
         NSLog(@"dbg: ### Adobe-Air Plugin >> MobFoxNativeAdDidLoad >> No ad data ###");
-        [self ShowToast:@"Native: MobFoxNativeAdDidLoad >> No ad data"];
+        //@@@[self ShowToast:@"Native: MobFoxNativeAdDidLoad >> No ad data"];
         
         [self dispatchMobFoxEventWithName:@"nativeError" andData:@"No ad data"];
     } else {
@@ -228,7 +255,7 @@
                          adData.clickURL];
         
         NSLog(@"dbg: ### Adobe-Air Plugin >> MobFoxNativeAdDidLoad %@",msg);
-        [self ShowToast:[NSString stringWithFormat:@"Native: MobFoxNativeAdDidLoad %@",msg]];
+        //@@@[self ShowToast:[NSString stringWithFormat:@"Native: MobFoxNativeAdDidLoad %@",msg]];
 
         [self dispatchMobFoxEventWithName:@"nativeReady" andData:msg];
     }
@@ -237,7 +264,7 @@
 //called when ad response cannot be returned
 - (void)MobFoxNativeAdDidFailToReceiveAdWithError:(NSError *)error {
     
-    [self ShowToast:[NSString stringWithFormat:@"ERROR: %@",[error description]]];
+    //@@@[self ShowToast:[NSString stringWithFormat:@"ERROR: %@",[error description]]];
 
     NSLog(@"dbg: ### Adobe-Air Plugin >> MobFoxNativeAdDidFailToReceiveAdWithError >> %@",[error description]);
   
