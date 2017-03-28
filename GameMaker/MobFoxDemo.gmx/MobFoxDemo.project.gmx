@@ -37,6 +37,7 @@
     <sprite>sprites\sprt_native</sprite>
     <sprite>sprites\sprt_hide_banner</sprite>
     <sprite>sprites\sprt_unhide_banner</sprite>
+    <sprite>sprites\sprt_native_background</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -47,6 +48,9 @@
     <object>objects\btn_native</object>
     <object>objects\btn_hide_banner</object>
     <object>objects\btn_unhide_banner</object>
+    <object>objects\native_img_icon</object>
+    <object>objects\native_img_main</object>
+    <object>objects\native_object</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_main</room>

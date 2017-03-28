@@ -24,8 +24,8 @@
   <androidactivityinject></androidactivityinject>
   <gradleinject>compile 'com.android.support:appcompat-v7:23.1.1'
 
-compile 'com.google.android.gms:play-services-ads:9.0.2'
-</gradleinject>
+
+compile 'com.google.android.gms:play-services-ads:9.0.2'</gradleinject>
   <iosSystemFrameworks/>
   <iosThirdPartyFrameworks>
     <Framework weak="0">iOSSourceFromMac\MobFoxSDKCore.framework</Framework>

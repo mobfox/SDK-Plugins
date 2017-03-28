@@ -29,6 +29,8 @@
 
 //@@@set_use_location(0);
 
+show_toast("Loading native ad...");
+
 create_native("a764347547748896b84e0b8ccd90fd62");
 
 </string>
@@ -57,16 +59,20 @@ create_native("a764347547748896b84e0b8ccd90fd62");
 //if (ident == 70)
 {
     var type = ds_map_find_value(async_load,"type");
+    
+    // check for 'nativeError' callback:
     if (type == "nativeError") {
         var data = ds_map_find_value(async_load,"data");
         show_toast("nativeError: "+data);
     }
+    
+    // check for \nativeReady'callback:
     if (type == "nativeReady") {
         var data = ds_map_find_value(async_load,"data");
          
+        // parse data returned to get icons, texts, and click URL
         global.nativeIconFile = "";
         global.nativeMainFile = "";
-
         
         var szTitle = "";
         var szBody = "";
@@ -144,13 +150,27 @@ create_native("a764347547748896b84e0b8ccd90fd62");
             
         }
 
-        show_toast("Click: "+szClickUrl+"\nBody: "+szBody+"\nIcon: "+szIconUrl+"\nMain: "+szMainUrl+"\nClick: "+szClickUrl);
-
+        // now use the parsed data to show the native ad:
+        
         global.nativeTitle = szTitle;
         global.nativeIcon  = szIconUrl;
         global.nativeMain  = szMainUrl;
         global.nativeBody  = szBody;
         global.nativeClickUrl = szClickUrl;
+        
+        with (native_img_icon)
+        {
+            sprite_index = sprite_add(global.nativeIcon,1,false,false,0,0);
+        }
+        
+        with (native_img_main)
+        {
+            sprite_index = sprite_add(global.nativeMain,1,false,false,0,0);
+            image_xscale = 0.5;
+            image_yscale = 0.5;
+        }
+        
+        draw_text(110,610,global.nativeTitle);
     }
     if (type == "nativeClicked") {
         show_toast("nativeClicked");

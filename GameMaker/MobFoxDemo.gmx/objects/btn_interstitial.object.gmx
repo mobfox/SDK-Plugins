@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>// interstitial pressed
 
+show_toast("Loading interstitial ad...");
+
 set_use_location(0);
 
 create_interstitial("267d72ac3f77a3f447b32cf7ebf20673");
