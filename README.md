@@ -9,3 +9,6 @@ Download and Docs in [wiki](https://github.com/mobfox/SDK-Plugins/wiki/Cordova-P
 
 ## Adobe Air Plugin
 Download and Docs in [wiki](https://github.com/mobfox/SDK-Plugins/wiki/Adobe-Air-Plugin).
+
+## GameMaker Plugin
+Download and Docs in [wiki](https://github.com/mobfox/SDK-Plugins/wiki/GameMaker-Plugin).
