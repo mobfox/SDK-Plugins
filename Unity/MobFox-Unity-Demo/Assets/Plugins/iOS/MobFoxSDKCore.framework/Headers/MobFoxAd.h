@@ -12,10 +12,6 @@
 #import "MFLocationServicesManager.h"
 #import "MFExceptionHandler.h"
 
-#import "MFWebViewJavascriptBridgeBase.h"
-
-//#import "MFWKWebViewJavascriptBridge.h"
-
 @class MobFoxAd;
 
 @protocol MobFoxAdDelegate <NSObject>
@@ -39,17 +35,10 @@
 
 @interface MobFoxAd : UIView <UIWebViewDelegate, MobFoxCustomEventDelegate, UIGestureRecognizerDelegate, MFExceptionHandlerDelegate>
 
-    
-
 
 @property (nonatomic, weak) id <MobFoxAdDelegate> delegate;
 @property (nonatomic, strong) MFWebViewJavascriptBridge *bridge;
 @property (nonatomic, strong) MFLocationServicesManager *locationServicesManager;
-
-
-//@property (nonatomic) MFWebViewJavascriptBridge *brg;
-//@property (nonatomic) WebViewJavascriptBridgeBase *base;
-
 
 @property (nonatomic, copy) NSString* position;
 @property (nonatomic, copy) NSString* longitude;
@@ -74,14 +63,9 @@
 @property (nonatomic, assign) BOOL autoplay;
 @property (nonatomic, assign) BOOL skip;
 @property (nonatomic, assign) BOOL no_markup;
-@property (nonatomic, assign, getter=isUnitTesting) BOOL unit_testing;
 
-
-
-//@property (nonatomic, assign, getter=isDebug) BOOL debug;
-@property (nonatomic, assign, getter=isDelegateCustomEvents) BOOL delegateCustomEvents;
-@property (nonatomic, assign, getter=isAdspace_strict) BOOL adspace_strict;
-
+@property (nonatomic, assign) BOOL debug;
+@property (nonatomic, assign) BOOL delegateCustomEvents;
 
 
 
@@ -98,20 +82,12 @@
 - (void)pause;
 - (void)resume;
 + (void)locationServicesDisabled:(BOOL)disabled;
-- (void)renderAd:(NSDictionary *)adDict withCB:(void (^)(id responseData)) cb;
+- (void)renderAd:(NSDictionary *)adDict;
 - (BOOL)isViewVisible;
 
 - (void)_changeWidth:(float) newWidth;
 - (void)_setSize:(CGSize)size withContainer:(CGSize)container;
 - (void)_setFrame:(CGRect)aRect;
-
-
-- (void)removeTimeout;
-
-    
-
-    
-    
 
 @end
 
