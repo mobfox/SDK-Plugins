@@ -34,7 +34,7 @@ public class MobFox : MonoBehaviour
 	private string MobFoxInterstitialInventoryHash 	= "267d72ac3f77a3f447b32cf7ebf20673";
 	private string MobFoxNativeInventoryHash       	= "a764347547748896b84e0b8ccd90fd62";//"80187188f458cfde788d961b6882fd53";
 	private int top 								= 30;
-	private int left 								= 45;
+	private int left 								= 5;
 	private int width 								= 320;
 	private int height 								= 50;
 //	private bool smart 								= false;

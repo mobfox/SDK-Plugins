@@ -6,9 +6,13 @@ import android.graphics.Color;
 import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -23,6 +27,8 @@ import com.mobfox.sdk.nativeads.NativeListener;
 import com.mobfox.sdk.nativeads.TextItem;
 import com.unity3d.player.UnityPlayer;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +43,12 @@ public class MobFoxPlugin
     private static Context      mContext;
     private static MobFoxPlugin instance;
     private static String       mGameObjectId = null;
+
+    /**
+     * The {@code PopupWindow} that the banner ad be displayed in to ensure banner ads will be
+     * presented over a {@code SurfaceView}.
+     */
+    private PopupWindow mPopupWindow;
 
     // removed after build 1.02: "setLocation" is done in the manifest
     //private static boolean      mUseLocation  = false;
@@ -93,35 +105,47 @@ public class MobFoxPlugin
     {
         Log.v(MYTAG,"dbg: ### createBanner ###");
 
-//        showMessage("smart " + smart);
-//        showMessage("size: " + in_w + "x" + in_h);
-
         if (MobFoxPlugin.mContext==null) return;
+
+        if (mBanner!=null)
+        {
+            mBanner.setVisibility(View.GONE);
+
+            mPopupWindow.dismiss();
+            ViewParent parentView = mBanner.getParent();
+            if (parentView != null && parentView instanceof ViewGroup) {
+                ((ViewGroup) parentView).removeView(mBanner);
+            }
+
+            mBanner = null;
+        }
 
         int x = MobFoxPlugin.CalcDPIToReal(MobFoxPlugin.mContext, in_x);
         int y = MobFoxPlugin.CalcDPIToReal(MobFoxPlugin.mContext, in_y);
         int w = MobFoxPlugin.CalcDPIToReal(MobFoxPlugin.mContext, in_w);
         int h = MobFoxPlugin.CalcDPIToReal(MobFoxPlugin.mContext, in_h);
 
-        if (mBanner!=null)
-        {
-            mBanner = null;
-        }
-
-        // removed after build 1.02: "setLocation" is done in the manifest
-        //Banner.setGetLocation(MobFoxPlugin.mUseLocation);
-
-        final ViewGroup v1 = (ViewGroup) ((ViewGroup) ((Activity) MobFoxPlugin.mContext)
-                .findViewById(android.R.id.content)).getChildAt(0);
-
         mBanner = new Banner(MobFoxPlugin.mContext, in_w, in_h);
 
         if (mBanner!=null)
         {
+            if (smart)
+            {
+                final ViewGroup v1 = (ViewGroup) ((ViewGroup) ((Activity) MobFoxPlugin.mContext)
+                        .findViewById(android.R.id.content)).getChildAt(0);
+                int scrW = v1.getWidth();
 
-//            int width = v1.getWidth();
-//            int height = v1.getHeight();
-//            showMessage("unity activity width " + width + ", height " + height);
+                createPopupWindow(w,h);
+                showPopUpWindow((scrW-w)/2,y);
+            } else {
+                createPopupWindow(w,h);
+                showPopUpWindow(x,y);
+            }
+
+
+            /*
+            final ViewGroup v1 = (ViewGroup) ((ViewGroup) ((Activity) MobFoxPlugin.mContext)
+                .findViewById(android.R.id.content)).getChildAt(0);
 
             if (v1!=null)
             {
@@ -144,19 +168,61 @@ public class MobFoxPlugin
                     rl.addView(mBanner, bParams);
 
                 } else {
+
                     params = new FrameLayout.LayoutParams(w, h);
                     params.setMargins(x, y, 0, 0);
                     v1.addView(mBanner, params);
                 }
             }
+            */
 
             Log.v(MYTAG,"dbg: ### banner allocated ###");
 
             mBanner.setListener(mBannerListener);
-
             mBanner.setInventoryHash(myHash);
-
             mBanner.load();
+        }
+    }
+
+    private void createPopupWindow(int width, int height)
+    {
+        // Workaround for issue where popUpWindow will not resize to the full width
+        // of the screen to accommodate a smart banner.
+        int popUpWindowWidth  = width;
+        int popUpWindowHeight = height;
+        mPopupWindow = new PopupWindow(mBanner, popUpWindowWidth, popUpWindowHeight);
+
+        // Copy system UI visibility flags set on Unity player window to newly created PopUpWindow.
+        int visibilityFlags = ((Activity)MobFoxPlugin.mContext).getWindow().getAttributes().flags;
+        mPopupWindow.getContentView().setSystemUiVisibility(visibilityFlags);
+
+        // Workaround to prevent ad views from losing visibility on activity changes for certain
+        // devices (eg. Huawei devices).
+        setPopUpWindowLayoutType(mPopupWindow,
+                WindowManager.LayoutParams.TYPE_APPLICATION_SUB_PANEL);
+    }
+
+    private void showPopUpWindow(int x, int y) {
+        mPopupWindow.showAtLocation(
+                ((Activity)MobFoxPlugin.mContext).getWindow().getDecorView().getRootView(),
+                Gravity.NO_GRAVITY, (int) x, (int)y);
+    }
+
+
+    public void setPopUpWindowLayoutType(PopupWindow popupWindow, int layoutType) {
+        try {
+            Method method = PopupWindow.class.getDeclaredMethod("setWindowLayoutType", int.class);
+            method.setAccessible(true);
+            method.invoke(popupWindow, layoutType);
+        } catch (NoSuchMethodException exception) {
+            Log.w(MYTAG, String.format("Unable to set popUpWindow window layout type: %s",
+                    exception.getLocalizedMessage()));
+        } catch (IllegalAccessException exception) {
+            Log.w(MYTAG, String.format("Unable to set popUpWindow window layout type: %s",
+                    exception.getLocalizedMessage()));
+        } catch (InvocationTargetException exception) {
+            Log.d(MYTAG, String.format("Unable to set popUpWindow window layout type: %s",
+                    exception.getLocalizedMessage()));
         }
     }
 
