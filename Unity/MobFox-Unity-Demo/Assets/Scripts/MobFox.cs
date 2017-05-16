@@ -30,15 +30,15 @@ public class MobFox : MonoBehaviour
 	public static extern void _createNative(string invh);
 
 
-	[SerializeField] string MobFoxBannerInventoryHash       = "fe96717d9875b9da4339ea5367eff1ec";
-	[SerializeField] string MobFoxInterstitialInventoryHash = "267d72ac3f77a3f447b32cf7ebf20673";
-	[SerializeField] string MobFoxNativeInventoryHash       = "80187188f458cfde788d961b6882fd53";
-	[SerializeField] int top 								= 0;
-	[SerializeField] int left 								= 0;
-	[SerializeField] int width 								= 320;
-	[SerializeField] int height 							= 50;
-//	[SerializeField] bool smart 							= false;
-	[SerializeField] string MobFoxGameObjectName            = "MobFoxObject";
+	private string MobFoxBannerInventoryHash       	= "fe96717d9875b9da4339ea5367eff1ec";
+	private string MobFoxInterstitialInventoryHash 	= "267d72ac3f77a3f447b32cf7ebf20673";
+	private string MobFoxNativeInventoryHash       	= "a764347547748896b84e0b8ccd90fd62";//"80187188f458cfde788d961b6882fd53";
+	private int top 								= 30;
+	private int left 								= 45;
+	private int width 								= 320;
+	private int height 								= 50;
+//	private bool smart 								= false;
+	private string MobFoxGameObjectName            	= "MobFoxObject";
 
 	bool useLocation = false;
 
@@ -54,8 +54,6 @@ public class MobFox : MonoBehaviour
 	private RawImage nativeImageMain;
 	private string nativeClickUrl;
 
-	private Canvas nativeCanvas;
-
 	//======================================================================================
 	//======  I N I T                                                                 ======
 	//======================================================================================
@@ -68,8 +66,6 @@ public class MobFox : MonoBehaviour
 		nativeTxtBody   = (Text)GameObject.Find("nativeBody").GetComponent<Text>();
 		nativeImageIcon = (RawImage)GameObject.Find("nativeIcon").GetComponent<RawImage>();
 		nativeImageMain = (RawImage)GameObject.Find("nativeMainImage").GetComponent<RawImage>();
-
-		nativeCanvas    = (Canvas)GameObject.Find("nativeCanvas").GetComponent<Canvas>();
 
 		nativeClickUrl = "";
 	}

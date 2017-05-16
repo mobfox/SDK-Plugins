@@ -135,15 +135,13 @@ extern "C"
 -(void) createInterstitial:(NSString*)invh{
     
     NSLog(@"dbg: ### MobFoxUnityPlugin >> createInterstitial(%@)",invh);
-    
-    //self.inter = [[MobFoxInterstitialAd alloc] init:invh];
-    
+        
     [MobFoxAd locationServicesDisabled:!self.mUseLocation];
     
     self.inter = [[MobFoxInterstitialAd alloc] init:invh
                              withRootViewController:UnityGetGLViewController()];
     
-    self.inter.ad.demo_gender = @"f";
+    //self.inter.ad.demo_gender = @"f";
     self.inter.delegate = self;
     
     [self.inter loadAd];
