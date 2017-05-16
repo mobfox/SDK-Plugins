@@ -9,13 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "MobFoxCustomEvent.h"
 #import "MFWebViewJavascriptBridge.h"
+#import "MFLocationServicesManager.h"
+#import "MFExceptionHandler.h"
 
-//#import <CoreLocation/CoreLocation.h>
+#import "MFWebViewJavascriptBridgeBase.h"
 
-//#import "LocationManager-Swift.h"
-//#import "LocationManager.swift"
-//@class LocationManager;
-
+//#import "MFWKWebViewJavascriptBridge.h"
 
 @class MobFoxAd;
 
@@ -38,76 +37,81 @@
 @end
 
 
-@interface MobFoxAd : UIView <UIWebViewDelegate, MobFoxCustomEventDelegate, UIGestureRecognizerDelegate>
+@interface MobFoxAd : UIView <UIWebViewDelegate, MobFoxCustomEventDelegate, UIGestureRecognizerDelegate, MFExceptionHandlerDelegate>
+
+    
 
 
-    @property (nonatomic, strong) id <MobFoxAdDelegate> delegate;
-    @property (nonatomic, strong) MFWebViewJavascriptBridge *bridge;
+@property (nonatomic, weak) id <MobFoxAdDelegate> delegate;
+@property (nonatomic, strong) MFWebViewJavascriptBridge *bridge;
+@property (nonatomic, strong) MFLocationServicesManager *locationServicesManager;
 
 
-    @property (nonatomic, copy) NSString* longitude;
-    @property (nonatomic, copy) NSString* latitude;
-    @property (nonatomic, copy) NSString* accuracy;
+//@property (nonatomic) MFWebViewJavascriptBridge *brg;
+//@property (nonatomic) WebViewJavascriptBridgeBase *base;
 
 
-    @property (nonatomic, copy) NSString* demo_gender; //"m/f"
-    @property (nonatomic, copy) NSString* demo_age;
-    @property (nonatomic, copy) NSString* s_subid;
-    @property (nonatomic, copy) NSString* sub_name;
-    @property (nonatomic, copy) NSString* sub_domain;
-    @property (nonatomic, copy) NSString* sub_storeurl;
-    @property (nonatomic, copy) NSString* r_floor;
+@property (nonatomic, copy) NSString* position;
+@property (nonatomic, copy) NSString* longitude;
+@property (nonatomic, copy) NSString* latitude;
+@property (nonatomic, copy) NSString* accuracy;
+@property (nonatomic, copy) NSString* demo_gender; //"m/f"
+@property (nonatomic, copy) NSString* demo_age;
+@property (nonatomic, copy) NSString* s_subid;
+@property (nonatomic, copy) NSString* sub_name;
+@property (nonatomic, copy) NSString* sub_domain;
+@property (nonatomic, copy) NSString* sub_storeurl;
+@property (nonatomic, copy) NSString* r_floor;
+@property (nonatomic, copy) NSString* type; //"waterfall" / "video"
+@property (nonatomic, copy) NSString* adFormat;
+@property (nonatomic, copy) NSNumber* adspace_width;
+@property (nonatomic, copy) NSNumber* adspace_height;
+@property (nonatomic, copy) NSNumber* v_dur_min;
+@property (nonatomic, copy) NSNumber* v_dur_max;
+@property (nonatomic, strong) NSString* invh;
+@property (nonatomic, strong, setter = setRefresh:) NSNumber* refresh;
 
-    @property (nonatomic, copy) NSString* type; //"waterfall" / "video"
-    @property (nonatomic, copy) NSString* adFormat;
-    @property (nonatomic, strong) NSString* invh;
-
-    @property (nonatomic, assign) BOOL autoplay;
-    @property (nonatomic, assign) BOOL skip;
-    @property (nonatomic, assign) BOOL no_markup;
-
-    @property (nonatomic, strong, setter = setRefresh:) NSNumber* refresh;
-    @property (nonatomic, copy) NSNumber* adspace_width;
-    @property (nonatomic, copy) NSNumber* adspace_height;
-    @property (nonatomic, copy) NSNumber* v_dur_min;
-    @property (nonatomic, copy) NSNumber* v_dur_max;
-
-    @property (nonatomic, assign) BOOL secure;
-    @property (nonatomic, assign) BOOL debug;
-    @property (nonatomic, assign) BOOL delegateCustomEvents;
-    @property (nonatomic, assign) BOOL auto_pilot;
-
+@property (nonatomic, assign) BOOL autoplay;
+@property (nonatomic, assign) BOOL skip;
+@property (nonatomic, assign) BOOL no_markup;
+@property (nonatomic, assign, getter=isUnitTesting) BOOL unit_testing;
 
 
 
-//- (NSString *)getIPAddress;
+//@property (nonatomic, assign, getter=isDebug) BOOL debug;
+@property (nonatomic, assign, getter=isDelegateCustomEvents) BOOL delegateCustomEvents;
+@property (nonatomic, assign, getter=isAdspace_strict) BOOL adspace_strict;
+
+
+
+
 - (id) init:(NSString*)invh;
 - (id) init:(NSString*)invh withFrame:(CGRect)aRect;
 - (void) loadAd;
-
-- (BOOL)webView:(UIWebView *)webView
-shouldStartLoadWithRequest:(NSURLRequest *)request
- navigationType:(UIWebViewNavigationType)navigationType;
 
 - (void)webViewDidStartLoad:(UIWebView *)webView;
 - (void)webViewDidFinishLoad:(UIWebView *)webView;
 - (void)webViewdidFailLoadWithError:(NSError *)error;
 
-/*
-- (void)MFCustomEventAd:(MobFoxCustomEvent *)event didLoad:(UIView *)ad;
-- (void)MFCustomEventAdDidFailToReceiveAdWithError:(NSError *)error;
-- (void)MFCustomEventAdClosed;
-- (void)MFCustomEventMobFoxAdClicked;
-- (void)MFCustomEventMobFoxAdFinished;
-*/
 
 - (void)play;
 - (void)pause;
 - (void)resume;
-- (void)renderAd:(NSDictionary *)adDict;
 + (void)locationServicesDisabled:(BOOL)disabled;
+- (void)renderAd:(NSDictionary *)adDict withCB:(void (^)(id responseData)) cb;
+- (BOOL)isViewVisible;
 
+- (void)_changeWidth:(float) newWidth;
+- (void)_setSize:(CGSize)size withContainer:(CGSize)container;
+- (void)_setFrame:(CGRect)aRect;
+
+
+- (void)removeTimeout;
+
+    
+
+    
+    
 
 @end
-
 
