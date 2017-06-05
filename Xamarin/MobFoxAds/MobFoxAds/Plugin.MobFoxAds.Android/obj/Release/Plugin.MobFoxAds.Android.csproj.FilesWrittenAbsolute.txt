@@ -1,0 +1,17 @@
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.Android/obj/Release/MonoAndroid,Version=v5.0.AssemblyAttribute.cs
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.Android/obj/Release/Plugin.MobFoxAds.obj.Release.__AndroidLibraryProjects__.zip
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.Android/bin/Release/Plugin.MobFoxAds.dll.mdb
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.Android/bin/Release/Plugin.MobFoxAds.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.Android/bin/Release/Plugin.MobFoxAds.apk
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.Android/obj/Release/android/bin/Plugin.MobFoxAds.apk
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.Android/obj/Release/R.cs.flag
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.Android/bin/Release/Plugin.MobFoxAds-Signed.apk
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.Android/obj/Release/uploadflags.txt
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.Android/obj/Release/Plugin.MobFoxAds.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.Android/obj/Release/Plugin.MobFoxAds.dll.mdb
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.Android/bin/Release/Plugin.CurrentActivity.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.Android/bin/Release/Plugin.MobFoxAds.Abstractions.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.Android/bin/Release/Plugin.MobFoxAds.Abstractions.dll.mdb
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.Android/bin/Release/Plugin.MobFoxAds.Abstractions.xml
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.Android/bin/Release/JarBinding.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.Android/bin/Release/JarBinding.dll.mdb

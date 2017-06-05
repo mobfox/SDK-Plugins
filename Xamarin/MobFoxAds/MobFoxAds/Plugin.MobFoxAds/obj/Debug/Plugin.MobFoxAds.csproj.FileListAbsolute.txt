@@ -1,0 +1,7 @@
+\\Mac\Home\Documents\Matomy\xamarine\MobFoxAds\MobFoxAds\Plugin.MobFoxAds\bin\Debug\Plugin.MobFoxAds.dll
+\\Mac\Home\Documents\Matomy\xamarine\MobFoxAds\MobFoxAds\Plugin.MobFoxAds\bin\Debug\Plugin.MobFoxAds.pdb
+\\Mac\Home\Documents\Matomy\xamarine\MobFoxAds\MobFoxAds\Plugin.MobFoxAds\bin\Debug\Plugin.MobFoxAds.Abstractions.dll
+\\Mac\Home\Documents\Matomy\xamarine\MobFoxAds\MobFoxAds\Plugin.MobFoxAds\bin\Debug\Plugin.MobFoxAds.Abstractions.pdb
+\\Mac\Home\Documents\Matomy\xamarine\MobFoxAds\MobFoxAds\Plugin.MobFoxAds\obj\Debug\Plugin.MobFoxAds.csprojResolveAssemblyReference.cache
+\\Mac\Home\Documents\Matomy\xamarine\MobFoxAds\MobFoxAds\Plugin.MobFoxAds\obj\Debug\Plugin.MobFoxAds.dll
+\\Mac\Home\Documents\Matomy\xamarine\MobFoxAds\MobFoxAds\Plugin.MobFoxAds\obj\Debug\Plugin.MobFoxAds.pdb

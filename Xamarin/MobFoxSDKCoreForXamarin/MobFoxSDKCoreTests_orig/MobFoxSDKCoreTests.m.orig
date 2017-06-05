@@ -1,0 +1,790 @@
+//
+//  MobFoxSDKCoreTests_orig.m
+//  MobFoxSDKCoreTests_orig
+//
+//  Created by Shimi Sheetrit on 2/20/17.
+//  Copyright © 2017 Matomy Media Group Ltd. All rights reserved.
+//
+
+#import <XCTest/XCTest.h>
+#import "MFURLProtocol.h"
+#import <MobFoxSDKCore/MobFoxSDKCore.h>
+#import "TestsDefines.h"
+#import "MFWebViewJavascriptBridgeBase.h"
+#import "MFWebViewJavascriptBridge.h"
+#import "MFWKWebViewJavascriptBridge.h"
+
+
+
+// Constants
+#define MOBFOX_HASH_BANNER @"fe96717d9875b9da4339ea5367eff1ec"
+#define MOBFOX_HASH_INTER @"267d72ac3f77a3f447b32cf7ebf20673"
+#define MOBFOX_HASH_NATIVE @"a764347547748896b84e0b8ccd90fd62"
+#define MOBFOX_HASH_VIDEO @"80187188f458cfde788d961b6882fd53"
+
+
+@interface MobFoxSDKCoreTests : XCTestCase <MobFoxAdDelegate, MobFoxInterstitialAdDelegate, MobFoxNativeAdDelegate, NSURLConnectionDelegate> {
+
+    
+    XCTestExpectation *expectationEx;
+    XCTestExpectation *expectationTest;
+    XCTestExpectation *expectationBnr;
+    XCTestExpectation *expectationNatv;
+    XCTestExpectation *expectationInt;
+    XCTestExpectation *expectationIntTimeOut;
+    XCTestExpectation *expectationBnrTimeOut;
+    XCTestExpectation *expectationBnrRenderingTimeOut;
+    XCTestExpectation *expectationAutoRedirect;
+    XCTestExpectation *expectationStoreAutoRedirect;
+    XCTestExpectation *expectationAutoRedirect2;
+
+<<<<<<< HEAD
+=======
+    
+    XCTestExpectation *expectationNative1_1;
+    XCTestExpectation *expectationNative1_2;
+>>>>>>> master
+    XCTestExpectation *expectationJavascriptBridgeClickAd;
+    XCTestExpectation *expectationTestHTTPSInATS;
+    XCTestExpectation *expectationNoAdReturnSingleResponse;
+    XCTestExpectation *expectationEmptyDataSingleResponse;
+    XCTestExpectation *expectationNoCustomEventsSingleResponse;
+
+    
+}
+
+@property (nonatomic, strong) UIWebView *uiWebView;
+@property (nonatomic, strong) MobFoxAd *mobfoxAd;
+@property (nonatomic, strong) MobFoxInterstitialAd *mobfoxIntAd;
+@property (nonatomic, strong) MobFoxNativeAd *mobfoxNativeAd;
+@property (atomic, assign, getter=isAdLoaded) BOOL adLoaded;
+<<<<<<< HEAD
+@property (nonatomic, strong) UIWebView *uiWebView;
+=======
+@property (atomic, assign, getter=isNoAdErrorReturn) BOOL noAdErrorReturn;
+@property (atomic, assign, getter=isEmptyDataReturn) BOOL emptyDataReturn;
+@property (atomic, assign, getter=isNoCustomEventsReturn) BOOL noCustomEventsReturn;
+
+>>>>>>> master
+
+
+
+
+@end
+
+
+@implementation MobFoxSDKCoreTests
+
+
+
+- (void)setUp {
+    [super setUp];
+    // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    NSLog(@"setUp");
+    
+    bool registerSuccesfully = [NSURLProtocol registerClass:[MFURLProtocol class]];
+    NSLog(@"registerSuccesfully: %d", registerSuccesfully);
+    
+    /*** web view ***/
+    
+    UIView *view = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
+    //UIViewController *rootVC = [[(AppDelegate *)[[UIApplication sharedApplication] delegate] window] rootViewController];
+    CGRect frame = view.bounds;
+    frame.size.height /= 2;
+    _uiWebView = [[UIWebView alloc] initWithFrame:frame];
+    _uiWebView.backgroundColor = [UIColor blueColor];
+    [view addSubview:_uiWebView];
+    frame.origin.y += frame.size.height;
+
+}
+
+- (void)tearDown {
+    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    NSLog(@"tearDown");
+
+    [NSURLProtocol unregisterClass:[MFURLProtocol class]];
+    
+    [TestsDefines setNoResponse:false];
+    [TestsDefines setRenderingTimeout:false];
+    [TestsDefines setStoreAutoRedirect:false];
+    [TestsDefines setAutoRedirect:false];
+    [TestsDefines setAutoRedirect2:false];
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
+    [TestsDefines setATSEnabled:false];
+    [TestsDefines setStoreAutoRedirect:false];
+    [TestsDefines setGrayLogRequestReceived:false];
+    [self         setNoAdErrorReturn:false];
+    [self         setAdLoaded:false];
+    [self         setEmptyDataReturn:false];
+    [self         setNoCustomEventsReturn:false];
+
+
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
+
+    expectationEx                           = nil;
+    expectationBnr                          = nil;
+    expectationInt                          = nil;
+    expectationNatv                         = nil;
+    expectationBnrTimeOut                   = nil;
+    expectationIntTimeOut                   = nil;
+    expectationAutoRedirect                 = nil;
+    expectationBnrRenderingTimeOut          = nil;
+    expectationStoreAutoRedirect            = nil;
+    expectationAutoRedirect2                = nil;
+    expectationJavascriptBridgeClickAd      = nil;
+    expectationTestHTTPSInATS               = nil;
+    expectationNoAdReturnSingleResponse     = nil;
+    expectationEmptyDataSingleResponse      = nil;
+    expectationNoCustomEventsSingleResponse = nil;
+    
+    [super tearDown];
+    
+}
+
+- (void)testExample {
+    
+    // This is an example of a functional test case.
+    // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+}
+
+ - (void)testPerformanceExample {
+ // This is an example of a performance test case.
+ [self measureBlock:^{
+ // Put the code you want to measure the time of here.
+ }];
+}
+
+// TODO: test click event in the adapter (verify it called only once).
+/*
+- (void)testJavascriptBridgeClickAd {
+    
+    expectationJavascriptBridgeClickAd = [self expectationWithDescription:@"testJavascriptBridgeClickAd test"];
+
+    CGRect bannerAdRect = CGRectMake(0 ,0, 320, 50);
+    _mobfoxAd = [[MobFoxAd alloc] init:MOBFOX_HASH_BANNER withFrame:bannerAdRect];
+    _mobfoxAd.delegate = self;
+    _mobfoxAd.refresh = [NSNumber numberWithInt:0];
+    _mobfoxAd.adspace_strict = false;
+    
+    
+    
+    UIView *view = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
+    [view addSubview:_mobfoxAd];
+
+    //WVJBHandler handler = _mobfoxAd.base.messageHandlers[@"click"];
+    
+    MFWebViewJavascriptBridge *bridge = [MFWebViewJavascriptBridge bridgeForWebView:_uiWebView];
+    
+    [bridge callHandler:@"click" data:nil responseCallback:^(id responseData) {
+        
+        //XCTAssertEqualObjects(responseData, @"Response from JS");
+    }];
+
+    
+    //_mobfoxAd.base = [[WebViewJavascriptBridgeBase alloc] init];
+    //WVJBHandler handler = _mobfoxAd.base.messageHandlers[@"click"];
+    
+    //[_mobfoxAd.base sendData:nil responseCallback:nil handlerName:@"click"];
+    //handler(@"<test url click>", nil);
+ 
+     [self waitForExpectationsWithTimeout:1.0 handler:^(NSError *error) {
+     
+     NSLog(@"testJavascriptBridgeClickAd error: %@", error);
+     }];
+    
+}*/
+
+- (void)testNoCustomEventsSingleResponse {
+    
+    expectationNoCustomEventsSingleResponse = [self expectationWithDescription:@"testNoCustomEventsSingleResponse test"];
+    
+    [MobFoxAd locationServicesDisabled:false];
+    
+    CGRect bannerAdRect = CGRectMake(0 ,0, 327, 50);
+    _mobfoxAd = [[MobFoxAd alloc] init:MOBFOX_HASH_BANNER withFrame:bannerAdRect];
+    _mobfoxAd.delegate = self;
+    _mobfoxAd.refresh = [NSNumber numberWithInt:0];
+    _mobfoxAd.adspace_strict = false;
+    
+    [TestsDefines setNoCustomEventsResponse:true];
+    
+    UIView *view = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
+    [view addSubview:_mobfoxAd];
+    [_mobfoxAd loadAd];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        
+        NSLog(@"testNoCustomEventsSingleResponse error: %@", error);
+    }];
+    
+}
+
+- (void)testEmptyDataSingleResponse {
+    
+    expectationEmptyDataSingleResponse = [self expectationWithDescription:@"testEmptyDataSingleResponse test"];
+    
+    [MobFoxAd locationServicesDisabled:false];
+    
+    CGRect bannerAdRect = CGRectMake(0 ,0, 327, 50);
+    _mobfoxAd = [[MobFoxAd alloc] init:MOBFOX_HASH_BANNER withFrame:bannerAdRect];
+    _mobfoxAd.delegate = self;
+    _mobfoxAd.refresh = [NSNumber numberWithInt:0];
+    _mobfoxAd.adspace_strict = false;
+    
+    [TestsDefines setEmptyDataResponse:true];
+    
+    UIView *view = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
+    [view addSubview:_mobfoxAd];
+    [_mobfoxAd loadAd];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        
+        NSLog(@"testEmptyDataSingleResponse error: %@", error);
+    }];
+    
+}
+
+- (void)testNoAdReturnSingleResponse {
+    
+    expectationNoAdReturnSingleResponse = [self expectationWithDescription:@"testNoAdReturnSingleResponse test"];
+    
+    [MobFoxAd locationServicesDisabled:false];
+    
+    CGRect bannerAdRect = CGRectMake(0 ,0, 324, 50);
+    _mobfoxAd = [[MobFoxAd alloc] init:MOBFOX_HASH_BANNER withFrame:bannerAdRect];
+    _mobfoxAd.delegate = self;
+    _mobfoxAd.refresh = [NSNumber numberWithInt:0];
+    _mobfoxAd.adspace_strict = false;
+    
+    [TestsDefines setNoAdResponse:true];
+    
+    UIView *view = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
+    [view addSubview:_mobfoxAd];
+    [_mobfoxAd loadAd];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        
+        NSLog(@"testNoAdReturnSingleResponse error: %@", error);
+    }];
+    
+}
+
+- (void)testStoreAutoRedirect {
+    
+    expectationStoreAutoRedirect = [self expectationWithDescription:@"StoreAutoRedirect test"];
+    
+    [MobFoxAd locationServicesDisabled:false];
+    
+    CGRect bannerAdRect = CGRectMake(0 ,0, 324, 50);
+    _mobfoxAd = [[MobFoxAd alloc] init:MOBFOX_HASH_BANNER withFrame:bannerAdRect];
+    _mobfoxAd.delegate = self;
+    _mobfoxAd.refresh = [NSNumber numberWithInt:0];
+    _mobfoxAd.adspace_strict = false;
+    
+    [TestsDefines setStoreAutoRedirect:true];
+    
+    UIView *view = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
+    
+    [view addSubview:_mobfoxAd];
+    
+    [_mobfoxAd loadAd];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        
+        NSLog(@"StoreAutoRedirect error: %@", error);
+    }];
+}
+
+
+- (void)testHTTPSInURL {
+    
+    expectationTestHTTPSInATS = [self expectationWithDescription:@"testHTTPSInURL test"];
+    // [[[NSProcessInfo processInfo] environment] setValue:[NSNumber numberWithBool:TRUE] forKey:@"IS_ATS_ENABLED"];
+    
+    [TestsDefines setATSEnabled:true];
+    [MobFoxAd locationServicesDisabled:false];
+    
+    CGRect bannerAdRect = CGRectMake(0 ,0, 327, 50);
+    _mobfoxAd = [[MobFoxAd alloc] init:MOBFOX_HASH_BANNER withFrame:bannerAdRect];
+    _mobfoxAd.delegate = self;
+    _mobfoxAd.refresh = [NSNumber numberWithInt:0];
+    _mobfoxAd.adspace_strict = false;
+    UIView *view = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
+    [view addSubview:_mobfoxAd];
+    [_mobfoxAd loadAd];
+    
+    double delayInSeconds = 2.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        NSLog(@"Do some work");
+        
+        //XCTAssertEqual(YES, [self isArrContainsOnlyHTTPsURL:[MFURLProtocol urlsArray]], @"test failed, testHTTPSInATS test");
+        if([self isArrContainsOnlyHTTPsURL:[MFURLProtocol urlsArray]]){
+            [self->expectationTestHTTPSInATS fulfill];}
+ 
+    });
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        
+        NSLog(@"StoreAutoRedirect error: %@", error);
+    }];
+    
+
+}
+
+- (BOOL)isArrContainsOnlyHTTPsURL:(NSArray *)arr {
+    
+    if(arr == nil || !arr.count) return NO;
+    
+    for (NSURL *url in arr) {
+        
+        NSLog(@"testHTTPSInATS -- URL: %@", [url absoluteString]);
+        if(![[url absoluteString] hasPrefix:@"https://"]) {
+            NSLog(@"https:// NOT FOUND IN URL !!!");
+            return NO;
+        } else {
+            NSLog(@"https:// FOUND IN URL !!!");
+        }
+        
+    }
+
+    return YES;
+}
+
+- (void)testATS {
+    
+    // This is an example of a functional test case.
+    
+    float oSVerLessThanNine = 8.0;
+    float oSVerEqaulToNine = 9.0;
+    
+    NSDictionary *dictATSNull = nil;
+    NSDictionary *dictATSDisabled = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithBool:true], @"NSAllowsArbitraryLoads", nil], @"NSAppTransportSecurity", nil];
+    NSDictionary *dictATSEnabled = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithBool:false], @"NSAllowsArbitraryLoads", nil], @"NSAppTransportSecurity", nil];
+    
+    // test #1
+    XCTAssertEqual(NO, [self handleATSTestOSVer:oSVerLessThanNine DictATS:dictATSNull], @"test failed, test number #1");
+    // test #2
+    XCTAssertEqual(NO, [self handleATSTestOSVer:oSVerLessThanNine DictATS:dictATSDisabled], @"test failed, test number #2");
+    // test #3
+    XCTAssertEqual(NO, [self handleATSTestOSVer:oSVerLessThanNine DictATS:dictATSEnabled], @"test failed, test number #3");
+    // test #4
+    XCTAssertEqual(NO, [self handleATSTestOSVer:oSVerEqaulToNine DictATS:dictATSNull], @"test failed, test number #4");
+    // test #5
+    XCTAssertEqual(YES, [self handleATSTestOSVer:oSVerEqaulToNine DictATS:dictATSDisabled], @"test failed, test number #5");
+    // test #6
+    XCTAssertEqual(NO, [self handleATSTestOSVer:oSVerEqaulToNine DictATS:dictATSEnabled], @"test failed, test number #6");
+    
+}
+
+// Implemented for unit test.
+- (BOOL)handleATSTestOSVer:(float)osVer DictATS:(NSDictionary *)dictATS {
+    
+    if (osVer >= 9.0) {
+        
+        //NSLog(@"dictATS: %@", dictATS);
+        NSDictionary *dictAllowsArbitraryLoads = [dictATS objectForKey:@"NSAppTransportSecurity"];
+        //NSLog(@"dictAllowsArbitraryLoads: %@", dictAllowsArbitraryLoads);
+        
+        if (dictAllowsArbitraryLoads != nil) {
+            
+            BOOL isATSDisabled = [[dictAllowsArbitraryLoads objectForKey:@"NSAllowsArbitraryLoads"] boolValue];
+            //NSLog(@"isATSDisabled: %d", isATSDisabled);
+            
+            return isATSDisabled;
+        }
+    }
+    
+    return false;
+    
+}
+
+<<<<<<< HEAD
+- (void)testStoreAutoRedirect {
+    
+    expectationStoreAutoRedirect = [self expectationWithDescription:@"StoreAutoRedirect test"];
+    
+    [MobFoxAd locationServicesDisabled:false];
+    
+    CGRect bannerAdRect = CGRectMake(0 ,0, 320, 50);
+    _mobfoxAd = [[MobFoxAd alloc] init:MOBFOX_HASH_BANNER withFrame:bannerAdRect];
+    _mobfoxAd.delegate = self;
+    _mobfoxAd.refresh = [NSNumber numberWithInt:0];
+    _mobfoxAd.adspace_strict = false;
+    
+    [TestsDefines setStoreAutoRedirect:true];
+    
+    UIView *view = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
+    
+    [view addSubview:_mobfoxAd];
+    
+    [_mobfoxAd loadAd];
+    
+    [self waitForExpectationsWithTimeout:7.0 handler:^(NSError *error) {
+        
+        NSLog(@"StoreAutoRedirect error: %@", error);
+    }];
+}
+
+=======
+>>>>>>> master
+- (void)testBannerAd {
+    
+    expectationBnr = [self expectationWithDescription:@"testBannerAd test"];
+    
+    [MobFoxAd locationServicesDisabled:false];
+    
+    CGRect bannerAdRect = CGRectMake(0 ,0, 320, 50);
+    _mobfoxAd = [[MobFoxAd alloc] init:MOBFOX_HASH_BANNER withFrame:bannerAdRect];
+    _mobfoxAd.delegate = self;
+    _mobfoxAd.refresh = [NSNumber numberWithInt:0];
+    _mobfoxAd.adspace_strict = false;
+    
+    UIView *view = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
+    
+    [view addSubview:_mobfoxAd];
+    
+    [_mobfoxAd loadAd];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        
+        NSLog(@"testBannerAd error: %@", error);
+    }];
+}
+
+
+- (void)testAutoRedirect {
+    
+    expectationAutoRedirect = [self expectationWithDescription:@"AutoRedirect test"];
+    
+    [MobFoxAd locationServicesDisabled:false];
+    
+    CGRect bannerAdRect = CGRectMake(0 ,0, 322, 50);
+    _mobfoxAd = [[MobFoxAd alloc] init:MOBFOX_HASH_BANNER withFrame:bannerAdRect];
+    _mobfoxAd.delegate = self;
+    _mobfoxAd.refresh = [NSNumber numberWithInt:0];
+    _mobfoxAd.adspace_strict = false;
+    
+    [TestsDefines setAutoRedirect:true];
+    
+    UIView *view = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
+    
+    [view addSubview:_mobfoxAd];
+    
+    [_mobfoxAd loadAd];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        
+        NSLog(@"AutoRedirect error: %@", error);
+    }];
+}
+
+
+- (void)testAutoRedirect2 {
+    
+    expectationAutoRedirect2 = [self expectationWithDescription:@"testAutoRedirect2 test"];
+    
+    [MobFoxAd locationServicesDisabled:false];
+    
+    CGRect bannerAdRect = CGRectMake(0 ,0, 325, 50);
+    _mobfoxAd = [[MobFoxAd alloc] init:MOBFOX_HASH_BANNER withFrame:bannerAdRect];
+    _mobfoxAd.delegate = self;
+    _mobfoxAd.refresh = [NSNumber numberWithInt:0];
+    _mobfoxAd.adspace_strict = false;
+    
+    [TestsDefines setAutoRedirect2:true];
+    
+    UIView *view = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
+    
+    [view addSubview:_mobfoxAd];
+    
+    [_mobfoxAd loadAd];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        
+        NSLog(@"AutoRedirect2 error: %@", error);
+    }];
+}
+
+- (void)testRenderingTimeout {
+    
+    expectationBnrRenderingTimeOut = [self expectationWithDescription:@"RenderingTimeout test"];
+    
+    [MobFoxAd locationServicesDisabled:false];
+    
+    CGRect bannerAdRect = CGRectMake(0 ,0, 320, 50);
+    _mobfoxAd = [[MobFoxAd alloc] init:MOBFOX_HASH_BANNER withFrame:bannerAdRect];
+    _mobfoxAd.delegate = self;
+    _mobfoxAd.refresh = [NSNumber numberWithInt:0];
+    _mobfoxAd.adspace_strict = false;
+    
+    [TestsDefines setRenderingTimeout:true];
+    
+    UIView *view = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
+    
+    [view addSubview:_mobfoxAd];
+    
+    [_mobfoxAd loadAd];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        
+        NSLog(@"testRenderingTimeout error: %@", error);
+    }];
+    
+}
+
+- (void)testAdTimeOut {
+    
+    expectationBnrTimeOut = [self expectationWithDescription:@"ad timeout test"];
+    
+    [MobFoxAd locationServicesDisabled:false];
+    
+    CGRect bannerAdRect = CGRectMake(0 ,0, 320, 50);
+    _mobfoxAd = [[MobFoxAd alloc] init:MOBFOX_HASH_BANNER withFrame:bannerAdRect];
+    _mobfoxAd.delegate = self;
+    _mobfoxAd.refresh = [NSNumber numberWithInt:0];
+    _mobfoxAd.adspace_strict = false;
+    
+    [TestsDefines setNoResponse:true];
+    
+    UIView *view = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
+    
+    [view addSubview:_mobfoxAd];
+    
+    [_mobfoxAd loadAd];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        
+        NSLog(@"testAdTimeOut error: %@", error);
+    }];
+    
+}
+
+
+- (void)testInterstitialTimeOut {
+    
+    expectationIntTimeOut = [self expectationWithDescription:@"interstitial ad timeout test"];
+    
+    [MobFoxAd locationServicesDisabled:false];
+    
+    //UIView *view = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
+    
+    _mobfoxIntAd = [[MobFoxInterstitialAd alloc] init:MOBFOX_HASH_INTER];
+    _mobfoxIntAd.delegate = self;
+    
+    [TestsDefines setNoResponse:true];
+    
+    [_mobfoxIntAd loadAd];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        
+        NSLog(@"testInterstitialTimeOut error: %@", error);
+    }];
+}
+
+- (void)testInterstitial {
+    
+    expectationInt = [self expectationWithDescription:@"interstitial ad request test"];
+    
+    [MobFoxAd locationServicesDisabled:false];
+        
+    _mobfoxIntAd = [[MobFoxInterstitialAd alloc] init:MOBFOX_HASH_INTER];
+    _mobfoxIntAd.delegate = self;
+    
+    [_mobfoxIntAd loadAd];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        
+        NSLog(@"testInterstitial timeout error: %@", error);
+    }];
+}
+
+- (void)testNativeAd {
+    
+    expectationNatv = [self expectationWithDescription:@"native ad request new API 1_1"];
+    
+    _mobfoxNativeAd = [[MobFoxNativeAd alloc] init:MOBFOX_HASH_NATIVE];
+    _mobfoxNativeAd.delegate = self;
+    _mobfoxNativeAd.invh = MOBFOX_HASH_NATIVE;
+    [_mobfoxNativeAd loadAd];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        
+        NSLog(@"testNativeAd timeout error: %@", error);
+    }];
+    
+}
+
+
+
+
+#pragma mark MobFox Ad Delegate
+
+//called when ad is displayed
+- (void)MobFoxAdDidLoad:(MobFoxAd *)banner {
+    
+    NSLog(@"test case MobFoxAdDidLoad:");
+    //NSLog(@"test case MobFoxAdDidLoad -- demoGender: %@", banner.demo_gender);
+    //NSLog(@"test case MobFoxAdDidLoad -- demo_age: %@", banner.demo_age);
+    //NSLog(@"test case MobFoxAdDidLoad -- invh: %@", banner.invh);
+    
+    if(expectationBnr) {
+        [expectationBnr fulfill];
+    } else if (expectationStoreAutoRedirect) {
+        [expectationStoreAutoRedirect fulfill];
+    } else if(expectationAutoRedirect || expectationAutoRedirect2) {
+        [self setAdLoaded:true];
+    } else if(expectationNoAdReturnSingleResponse) {
+        [self setNoAdErrorReturn:true];
+    } else if(expectationEmptyDataSingleResponse) {
+        [self setEmptyDataReturn:true];
+    } else if(expectationNoCustomEventsSingleResponse) {
+        [self setNoCustomEventsReturn:true];
+    }
+    
+}
+
+//called when an ad cannot be displayed
+- (void)MobFoxAdDidFailToReceiveAdWithError:(NSError *)error {
+    
+    NSLog(@"MobFoxAdDidFailToReceiveAdWithError: %@", [error description]);
+    
+    if(expectationBnrTimeOut && [[error description] hasPrefix:MFErrors.BnrTimeOut]) {
+        [expectationBnrTimeOut fulfill];
+    } else if(expectationBnrRenderingTimeOut && [[error description] hasPrefix:MFErrors.BnrTimeOut]) {
+        [expectationBnrRenderingTimeOut fulfill];
+    } else if((expectationAutoRedirect || expectationAutoRedirect2) && [[error description] hasPrefix:MFErrors.AutoRedirect] && [self isAdLoaded] && [TestsDefines isGrayLogRequestReceived]) {
+        if(expectationAutoRedirect) {
+            [expectationAutoRedirect fulfill];}
+        else if(expectationAutoRedirect2){
+            [expectationAutoRedirect2 fulfill];}
+        
+    } else if(expectationNoAdReturnSingleResponse) {
+        double delayInSeconds = 2.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            if(![self isNoAdErrorReturn]) {
+                [self->expectationNoAdReturnSingleResponse fulfill];
+            }
+        });
+        
+    } else if(expectationEmptyDataSingleResponse) {
+        double delayInSeconds = 2.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            if(![self isEmptyDataReturn]) {
+                [self->expectationEmptyDataSingleResponse fulfill];
+            }
+        });
+        
+    } else if(expectationNoCustomEventsSingleResponse) {
+        double delayInSeconds = 2.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            if(![self isNoCustomEventsReturn]) {
+                [self->expectationNoCustomEventsSingleResponse fulfill];
+            }
+        });
+        
+                
+    }
+    // TODO: fix it.
+    else if(expectationTestHTTPSInATS) {
+        [expectationTestHTTPSInATS fulfill];
+    }
+    
+}
+
+//called when ad is closed/skipped
+- (void)MobFoxAdClosed {
+    NSLog(@"MobFoxAdClosed:");
+}
+
+//called when ad is clicked
+- (void)MobFoxAdClicked {
+    NSLog(@"MobFoxAdClicked:");
+    
+    if(expectationJavascriptBridgeClickAd) {
+        [expectationJavascriptBridgeClickAd fulfill];
+    }
+}
+
+- (void)MobFoxAdFinished {
+    NSLog(@"MobFoxAdFinished:");
+}
+
+#pragma mark MobFox Interstitial Ad Delegate
+
+//best to show after delegate informs an ad was loaded
+- (void)MobFoxInterstitialAdDidLoad:(MobFoxInterstitialAd *)interstitial {
+    
+    NSLog(@"MobFoxInterstitialAdDidLoad:");
+    if (expectationInt) {
+        [expectationInt fulfill];
+    }
+    
+}
+
+- (void)MobFoxInterstitialAdDidFailToReceiveAdWithError:(NSError *)error {
+    
+    NSLog(@"MobFoxInterstitialAdDidFailToReceiveAdWithError: %@", [error description]);
+    
+<<<<<<< HEAD
+    if(expectationIntTimeOut && [[error description] hasPrefix:MFErrors.IntTimeOut]) {
+=======
+    
+     if(expectationIntTimeOut && [[error description] hasPrefix:MFErrors.IntTimeOut]) {
+>>>>>>> master
+        [expectationIntTimeOut fulfill];
+        [TestsDefines setNoResponse:false];
+
+    }
+    
+}
+
+
+#pragma mark MobFox Native Ad Delegate
+
+//called when ad response is returned
+- (void)MobFoxNativeAdDidLoad:(MobFoxNativeAd *)ad withAdData:(MobFoxNativeData *)adData {
+    
+    NSLog(@"MobFoxNativeAdDidLoad: %@ withAdData: %@", ad, adData);
+    
+    NSLog(@"adData.icon.url: %@", [adData.icon.url absoluteString]);
+    NSLog(@"adData.main.url: %@", [adData.main.url absoluteString]);
+    NSLog(@"adData.assetHeadline: %@", adData.assetHeadline);
+    NSLog(@"adData.callToActionText: %@", adData.callToActionText);
+    
+    if(expectationNatv) {
+        [expectationNatv fulfill];
+        
+    }
+    
+}
+
+//called when ad response cannot be returned
+- (void)MobFoxNativeAdDidFailToReceiveAdWithError:(NSError *)error {
+    
+    NSLog(@"MobFoxNativeAdDidFailToReceiveAdWithError: %@", [error description]);
+<<<<<<< HEAD
+    
+=======
+
+>>>>>>> master
+
+}
+
+
+
+
+@end
+

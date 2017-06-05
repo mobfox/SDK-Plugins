@@ -1,0 +1,12 @@
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/MobFoxDemoXM/obj/Release/.NETPortable,Version=v4.5,Profile=Profile111.AssemblyAttribute.cs
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/MobFoxDemoXM/obj/Release/MobFoxDemoXM.App.xaml
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/MobFoxDemoXM/obj/Release/MobFoxDemoXM.MobFoxDemoXMPage.xaml
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/MobFoxDemoXM/obj/Release/MobFoxDemoXM.App.xaml.g.cs
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/MobFoxDemoXM/obj/Release/MobFoxDemoXM.MobFoxDemoXMPage.xaml.g.cs
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/MobFoxDemoXM/bin/Release/MobFoxDemoXM.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/MobFoxDemoXM/obj/Release/MobFoxDemoXM.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/MobFoxDemoXM/bin/Release/Xamarin.Forms.Core.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/MobFoxDemoXM/bin/Release/Xamarin.Forms.Platform.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/MobFoxDemoXM/bin/Release/Xamarin.Forms.Xaml.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/MobFoxDemoXM/bin/Release/Plugin.MobFoxAds.Abstractions.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/MobFoxDemoXM/bin/Release/Plugin.MobFoxAds.dll

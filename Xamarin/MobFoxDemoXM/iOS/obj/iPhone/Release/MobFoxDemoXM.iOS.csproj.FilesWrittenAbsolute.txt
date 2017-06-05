@@ -1,0 +1,17 @@
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/iOS/obj/iPhone/Release/Xamarin.iOS,Version=v1.0.AssemblyAttribute.cs
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/iOS/obj/iPhone/Release/ibtool/_BundleResourceWithLogicalName.items
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/iOS/obj/iPhone/Release/actool/_PartialAppManifest.items
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/iOS/obj/iPhone/Release/actool/_BundleResourceWithLogicalName.items
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/iOS/obj/iPhone/Release/optimized/
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/iOS/bin/iPhone/Release/MobFoxDemoXM.iOS.exe.mdb
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/iOS/bin/iPhone/Release/MobFoxDemoXM.iOS.exe
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/iOS/obj/iPhone/Release/MobFoxDemoXM.iOS.exe
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/iOS/obj/iPhone/Release/MobFoxDemoXM.iOS.exe.mdb
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/iOS/bin/iPhone/Release/Xamarin.Forms.Core.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/iOS/bin/iPhone/Release/Xamarin.Forms.Platform.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/iOS/bin/iPhone/Release/Xamarin.Forms.Platform.iOS.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/iOS/bin/iPhone/Release/Xamarin.Forms.Xaml.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/iOS/bin/iPhone/Release/Plugin.MobFoxAds.Abstractions.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/iOS/bin/iPhone/Release/Plugin.MobFoxAds.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/iOS/bin/iPhone/Release/MobFoxDemoXM.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxDemoXM/iOS/bin/iPhone/Release/AppleBinding.dll

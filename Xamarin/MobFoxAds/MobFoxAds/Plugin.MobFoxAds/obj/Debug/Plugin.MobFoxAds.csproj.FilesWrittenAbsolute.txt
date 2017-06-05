@@ -1,0 +1,7 @@
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds/obj/Debug/.NETPortable,Version=v4.5,Profile=Profile259.AssemblyAttribute.cs
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds/bin/Debug/Plugin.MobFoxAds.dll.mdb
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds/bin/Debug/Plugin.MobFoxAds.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds/obj/Debug/Plugin.MobFoxAds.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds/obj/Debug/Plugin.MobFoxAds.dll.mdb
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds/bin/Debug/Plugin.MobFoxAds.Abstractions.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds/bin/Debug/Plugin.MobFoxAds.Abstractions.dll.mdb

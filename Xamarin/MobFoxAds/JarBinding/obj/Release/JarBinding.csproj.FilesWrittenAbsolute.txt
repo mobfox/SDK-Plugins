@@ -1,0 +1,6 @@
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/JarBinding/obj/Release/MonoAndroid,Version=v5.0.AssemblyAttribute.cs
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/JarBinding/obj/Release/JarBinding.Jars.MobFox-Android-SDK-Core-3.2.5d.jar
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/JarBinding/bin/Release/JarBinding.dll.mdb
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/JarBinding/bin/Release/JarBinding.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/JarBinding/obj/Release/JarBinding.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/JarBinding/obj/Release/JarBinding.dll.mdb

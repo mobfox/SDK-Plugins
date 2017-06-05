@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.MobFoxAds", "MobFoxAds\Plugin.MobFoxAds\Plugin.MobFoxAds.csproj", "{A6FCEF44-D2BA-42C7-B3CB-13667BCD7B54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.MobFoxAds.Abstractions", "MobFoxAds\Plugin.MobFoxAds.Abstractions\Plugin.MobFoxAds.Abstractions.csproj", "{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.MobFoxAds.iOS", "MobFoxAds\Plugin.MobFoxAds.iOS\Plugin.MobFoxAds.iOS.csproj", "{2882AEEB-D4CD-4EB9-8A6C-6653B33681F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.MobFoxAds.Android", "MobFoxAds\Plugin.MobFoxAds.Android\Plugin.MobFoxAds.Android.csproj", "{56A56F17-7DE1-4CA1-9617-BF32E971AC84}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{66379DFF-017C-42C4-B4B0-9BF6571520AA}"
+	ProjectSection(SolutionItems) = preProject
+		Plugin.MobFoxAds.nuspec = Plugin.MobFoxAds.nuspec
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JarBinding", "JarBinding\JarBinding.csproj", "{EAD8B6AA-DD20-4E2C-857E-8B5DF5BAC522}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppleBinding", "AppleBinding\AppleBinding.csproj", "{DB44B340-77AD-4D17-8A9F-17842D847839}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6FCEF44-D2BA-42C7-B3CB-13667BCD7B54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6FCEF44-D2BA-42C7-B3CB-13667BCD7B54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6FCEF44-D2BA-42C7-B3CB-13667BCD7B54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6FCEF44-D2BA-42C7-B3CB-13667BCD7B54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2882AEEB-D4CD-4EB9-8A6C-6653B33681F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2882AEEB-D4CD-4EB9-8A6C-6653B33681F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2882AEEB-D4CD-4EB9-8A6C-6653B33681F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2882AEEB-D4CD-4EB9-8A6C-6653B33681F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56A56F17-7DE1-4CA1-9617-BF32E971AC84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56A56F17-7DE1-4CA1-9617-BF32E971AC84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56A56F17-7DE1-4CA1-9617-BF32E971AC84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56A56F17-7DE1-4CA1-9617-BF32E971AC84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAD8B6AA-DD20-4E2C-857E-8B5DF5BAC522}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAD8B6AA-DD20-4E2C-857E-8B5DF5BAC522}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAD8B6AA-DD20-4E2C-857E-8B5DF5BAC522}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAD8B6AA-DD20-4E2C-857E-8B5DF5BAC522}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB44B340-77AD-4D17-8A9F-17842D847839}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB44B340-77AD-4D17-8A9F-17842D847839}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB44B340-77AD-4D17-8A9F-17842D847839}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB44B340-77AD-4D17-8A9F-17842D847839}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

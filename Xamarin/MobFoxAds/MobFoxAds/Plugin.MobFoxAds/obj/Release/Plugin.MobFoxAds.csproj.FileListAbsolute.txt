@@ -1,0 +1,9 @@
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds\bin\Release\Plugin.MobFoxAds.XML
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds\bin\Release\Plugin.MobFoxAds.dll
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds\bin\Release\Plugin.MobFoxAds.pdb
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds\bin\Release\Plugin.MobFoxAds.Abstractions.dll
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds\bin\Release\Plugin.MobFoxAds.Abstractions.pdb
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds\bin\Release\Plugin.MobFoxAds.Abstractions.xml
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds\obj\Release\Plugin.MobFoxAds.csprojResolveAssemblyReference.cache
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds\obj\Release\Plugin.MobFoxAds.dll
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds\obj\Release\Plugin.MobFoxAds.pdb

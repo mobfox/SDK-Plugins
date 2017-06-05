@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Plugin.MobFoxAds.Abstractions</name>
+    </assembly>
+    <members>
+        <member name="T:Plugin.MobFoxAds.Abstractions.IMobFoxAds">
+             <summary>
+             Interface for MobFoxAds
+             </summary>
+            </member>
+        <member name="E:Plugin.MobFoxAds.Abstractions.IMobFoxAds.MobFoxBannerCallbackHandler">
+             <summary>
+             Event handler when connection changes
+             </summary>
+            </member>
+        <member name="E:Plugin.MobFoxAds.Abstractions.IMobFoxAds.MobFoxInterstitialCallbackHandler">
+             <summary>
+             Event handler when connection changes
+             </summary>
+            </member>
+        <member name="E:Plugin.MobFoxAds.Abstractions.IMobFoxAds.MobFoxNativeCallbackHandler">
+             <summary>
+             Event handler when connection changes
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.Abstractions.IMobFoxAds.ShowToast(System.String)">
+             <summary>
+             Show toast with text
+             </summary>
+             <param name="text">Text to show</param>
+            </member>
+        <member name="M:Plugin.MobFoxAds.Abstractions.IMobFoxAds.CreateBanner(System.String,System.Int32,System.Int32,System.Int32,System.Int32)">
+             <summary>
+             Create and show a banner ad
+             </summary>
+             <param name="hash">Hash of ad</param>
+             <param name="x">X coordinate of banner, default is 0</param>
+             <param name="y">Y coordinate of banner, default is 0</param>
+             <param name="width">Width of banner, default is 320</param>
+             <param name="height">Height of banner, default is 50</param>
+            </member>
+        <member name="M:Plugin.MobFoxAds.Abstractions.IMobFoxAds.HideBanner">
+             <summary>
+             Hide banner
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.Abstractions.IMobFoxAds.UnideBanner">
+             <summary>
+             Unhide banner
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.Abstractions.IMobFoxAds.CreateInterstitial(System.String)">
+             <summary>
+             Create interstitial
+             </summary>
+             <param name="hash">Hash of ad</param>
+            </member>
+        <member name="M:Plugin.MobFoxAds.Abstractions.IMobFoxAds.ShowInterstitial">
+             <summary>
+             Show interstitial
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.Abstractions.IMobFoxAds.CreateNative(System.String)">
+             <summary>
+             Create native
+             </summary>
+             <param name="hash">Hash of ad</param>
+            </member>
+        <member name="T:Plugin.MobFoxAds.Abstractions.MobFoxBannerCallbackEventArgs">
+             <summary>
+             Arguments to pass to event handlers
+             </summary>
+            </member>
+        <member name="P:Plugin.MobFoxAds.Abstractions.MobFoxBannerCallbackEventArgs.EventType">
+             <summary>
+             type of event
+             </summary>
+            </member>
+        <member name="P:Plugin.MobFoxAds.Abstractions.MobFoxBannerCallbackEventArgs.ErrorDesc">
+             <summary>
+             error description
+             </summary>
+            </member>
+        <member name="T:Plugin.MobFoxAds.Abstractions.MobFoxBannerCallbackEventHandler">
+             <summary>
+             MobFox ad event handlers
+             </summary>
+             <param name="sender"></param>
+             <param name="e"></param>
+            </member>
+        <member name="T:Plugin.MobFoxAds.Abstractions.MobFoxInterstitialCallbackEventArgs">
+             <summary>
+             Arguments to pass to event handlers
+             </summary>
+            </member>
+        <member name="P:Plugin.MobFoxAds.Abstractions.MobFoxInterstitialCallbackEventArgs.EventType">
+             <summary>
+             type of event
+             </summary>
+            </member>
+        <member name="P:Plugin.MobFoxAds.Abstractions.MobFoxInterstitialCallbackEventArgs.ErrorDesc">
+             <summary>
+             error description
+             </summary>
+            </member>
+        <member name="T:Plugin.MobFoxAds.Abstractions.MobFoxInterstitialCallbackEventHandler">
+             <summary>
+             MobFox ad event handlers
+             </summary>
+             <param name="sender"></param>
+             <param name="e"></param>
+            </member>
+        <member name="T:Plugin.MobFoxAds.Abstractions.MobFoxNativeCallbackEventArgs">
+             <summary>
+             Arguments to pass to event handlers
+             </summary>
+            </member>
+        <member name="P:Plugin.MobFoxAds.Abstractions.MobFoxNativeCallbackEventArgs.EventType">
+             <summary>
+             type of event
+             </summary>
+            </member>
+        <member name="P:Plugin.MobFoxAds.Abstractions.MobFoxNativeCallbackEventArgs.ErrorDesc">
+             <summary>
+             error description
+             </summary>
+            </member>
+        <member name="P:Plugin.MobFoxAds.Abstractions.MobFoxNativeCallbackEventArgs.TitleText">
+             <summary>
+             title text
+             </summary>
+            </member>
+        <member name="P:Plugin.MobFoxAds.Abstractions.MobFoxNativeCallbackEventArgs.BodyText">
+             <summary>
+             body text
+             </summary>
+            </member>
+        <member name="P:Plugin.MobFoxAds.Abstractions.MobFoxNativeCallbackEventArgs.IconUrl">
+             <summary>
+             icon url
+             </summary>
+            </member>
+        <member name="P:Plugin.MobFoxAds.Abstractions.MobFoxNativeCallbackEventArgs.MainImageUrl">
+             <summary>
+             main image url
+             </summary>
+            </member>
+        <member name="P:Plugin.MobFoxAds.Abstractions.MobFoxNativeCallbackEventArgs.ClickUrl">
+             <summary>
+             click url
+             </summary>
+            </member>
+        <member name="T:Plugin.MobFoxAds.Abstractions.MobFoxNativeCallbackEventHandler">
+             <summary>
+             MobFox ad event handlers
+             </summary>
+             <param name="sender"></param>
+             <param name="e"></param>
+            </member>
+        <member name="T:Plugin.MobFoxAds.Abstractions.BaseMobFox">
+             <summary>
+             Base class for all MobFoxAds classes
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.Abstractions.BaseMobFox.OnMobFoxBannerCallback(Plugin.MobFoxAds.Abstractions.MobFoxBannerCallbackEventArgs)">
+             <summary>
+             When MobFox ads fires
+             </summary>
+             <param name="e"></param>
+            </member>
+        <member name="E:Plugin.MobFoxAds.Abstractions.BaseMobFox.MobFoxBannerCallbackHandler">
+             <summary>
+             MobFox ad event
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.Abstractions.BaseMobFox.OnMobFoxInterstitialCallback(Plugin.MobFoxAds.Abstractions.MobFoxInterstitialCallbackEventArgs)">
+             <summary>
+             When MobFox ads fires
+             </summary>
+             <param name="e"></param>
+            </member>
+        <member name="E:Plugin.MobFoxAds.Abstractions.BaseMobFox.MobFoxInterstitialCallbackHandler">
+             <summary>
+             MobFox ad event
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.Abstractions.BaseMobFox.OnMobFoxNativeCallback(Plugin.MobFoxAds.Abstractions.MobFoxNativeCallbackEventArgs)">
+             <summary>
+             When MobFox ads fires
+             </summary>
+             <param name="e"></param>
+            </member>
+        <member name="E:Plugin.MobFoxAds.Abstractions.BaseMobFox.MobFoxNativeCallbackHandler">
+             <summary>
+             MobFox ad event
+             </summary>
+            </member>
+    </members>
+</doc>

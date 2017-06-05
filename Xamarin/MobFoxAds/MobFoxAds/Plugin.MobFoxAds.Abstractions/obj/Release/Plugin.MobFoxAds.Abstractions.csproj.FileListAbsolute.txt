@@ -1,0 +1,7 @@
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds.Abstractions\bin\Release\Plugin.MobFoxAds.Abstractions.XML
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds.Abstractions\bin\Release\Plugin.MobFoxAds.Abstractions.dll
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds.Abstractions\bin\Release\Plugin.MobFoxAds.Abstractions.pdb
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds.Abstractions\obj\Release\Plugin.MobFoxAds.Abstractions.dll
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds.Abstractions\obj\Release\Plugin.MobFoxAds.Abstractions.pdb
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds.Abstractions\obj\Release\Plugin.MobFoxAds.Abstractions.dll.mdb
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds.Abstractions\bin\Release\Plugin.MobFoxAds.Abstractions.dll.mdb

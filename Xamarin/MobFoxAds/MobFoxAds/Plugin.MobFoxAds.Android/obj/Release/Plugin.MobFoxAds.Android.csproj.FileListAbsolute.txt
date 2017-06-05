@@ -1,0 +1,14 @@
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds.Android\bin\Release\Plugin.MobFoxAds.XML
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds.Android\bin\Release\Plugin.MobFoxAds.dll
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds.Android\bin\Release\Plugin.MobFoxAds.pdb
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds.Android\bin\Release\Plugin.MobFoxAds.apk
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds.Android\bin\Release\Plugin.MobFoxAds-Signed.apk
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds.Android\bin\Release\Plugin.MobFoxAds.Abstractions.dll
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds.Android\bin\Release\Plugin.MobFoxAds.Abstractions.pdb
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds.Android\bin\Release\Plugin.MobFoxAds.Abstractions.xml
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds.Android\obj\Release\Plugin.MobFoxAds.Android.csprojResolveAssemblyReference.cache
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds.Android\obj\Release\Plugin.MobFoxAds.dll
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds.Android\obj\Release\Plugin.MobFoxAds.pdb
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds.Android\obj\Release\android\bin\Plugin.MobFoxAds.apk
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds.Android\obj\Release\R.cs.flag
+C:\xamarin_on_windows\MobFoxAds\MobFoxAds\Plugin.MobFoxAds.Android\obj\Release\uploadflags.txt

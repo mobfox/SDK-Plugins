@@ -1,0 +1,78 @@
+Install Xamarin
+===============
+
+1. Create an account: 
+   https://www.xamarin.com
+
+2. Download installer: 
+   https://www.xamarin.com/download
+
+   Also download Sharpie: 
+   https://download.xamarin.com/objective-sharpie/ObjectiveSharpie.pkg
+
+3. Building the plugin:
+
+   A. Building iOS part of the plugin: 
+
+      ** ‘MobFoxSDKCoreForXamarin’ folder:
+
+      A copy of the MobFoxSDKCore is at ‘MobFoxSDKCoreForXamarin’
+      Copy the .m and .h files, etc.
+      The project is a wrapper around the original MobFoxSDKCore to create a
+      static library out of it. After you build the project, copy the 
+      ‘libMobFoxSDKCore.a’ file into ‘MobFoxSDKCoreStaticLibrary’ folder
+
+      ** ‘MobFoxSDKCoreStaticLibrary’ folder:
+
+      After you build the project, copy the ‘libMobFoxSDKCore.a’ file into
+      ‘MobFoxSDKCoreStaticLibrary’ folder, and make sure the .h files inside
+      ‘include’ folder are up to date.
+
+       Now run the ‘make.sh’ script.
+
+      This will create 2 new files in ‘MobFoxSDKCore’: 
+      ApiDefinitions.cs & StructsAndEnums.cs
+
+      Rename these to:
+      ApiDefinition.cs & Structs.cs
+
+      In both files comment out any line starting with “[Verify…”
+
+      In ‘ApiDefinition.cs’ - search for every line starting with
+      “// @protocol XXX <NSObject>” (e.g. “// @protocol MobFoxNativeAdDelegate <NSObject>”)
+      and add above it a line like:
+      “public interface IXXX { }” (e.g. “public interface IMobFoxNativeAdDelegate { }”)
+      (note - in the added line you add an “I” before the object name)
+
+      Copy the ApiDefinition.cs & Structs.cs & libMobFoxSDKCore.a files to folder
+      ‘AppleBinding’ inside the ’MobFoxAds’ folder.
+
+   B. Building the Android part of the plugin:
+
+      Copy the latest Android MobFox-Android-SDK-Core-***.JAR file into
+      ‘JarBinding/Jars’ folder inside the ‘MobFoxAds’ folder.
+
+   C. Packing the whole plugin:
+      
+      Open ‘MobFoxAds.sln’ solution file from inside the ‘MobFoxAds’ folder.
+      
+      Build the project.
+
+      Run the ‘make.sh’ script. It will create the ‘MobFox.Plugin.MobFoxAds.1.0.12.nupkg’
+      file which is the plugin.
+
+      Note: the version info is defined in the ‘Plugin.MobFoxAds.nuspec’ file.
+
+4. Demo application:
+
+   A. It is in the ‘MobFoxDemoXM’ folder. Open the ‘MobFoxDemoXM.sln’ solution file.
+
+   B. Copy the ‘MobFox.Plugin.MobFoxAds.1.0.12.nupkg’ file from the ‘MobFoxAds’ folder
+      into the ‘packages’ folder of ‘MobFoxDemoXM.sln’
+
+      Build the project, and run.
+
+   
+   
+
+   

@@ -12,3 +12,6 @@ Download and Docs in [wiki](https://github.com/mobfox/SDK-Plugins/wiki/Adobe-Air
 
 ## GameMaker Plugin
 Download and Docs in [wiki](https://github.com/mobfox/SDK-Plugins/wiki/GameMaker-Plugin).
+
+## Xamarin Plugin
+Download and Docs in [wiki](https://github.com/mobfox/SDK-Plugins/wiki/Xamarin-Plugin).

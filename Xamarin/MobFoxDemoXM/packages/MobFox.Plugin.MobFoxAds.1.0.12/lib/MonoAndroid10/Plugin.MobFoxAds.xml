@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Plugin.MobFoxAds</name>
+    </assembly>
+    <members>
+        <member name="T:Plugin.MobFoxAds.CrossMobFoxAds">
+             <summary>
+             Cross platform MobFoxAds implemenations
+             </summary>
+            </member>
+        <member name="P:Plugin.MobFoxAds.CrossMobFoxAds.Current">
+             <summary>
+             Current settings to use
+             </summary>
+            </member>
+        <member name="T:Plugin.MobFoxAds.MobFoxAdsImplementation">
+             <summary>
+             Implementation for Feature
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.ShowToast(System.String)">
+             <summary>
+             Show toast with text
+             </summary>
+             <param name="text">Text to show</param>
+            </member>
+        <member name="F:Plugin.MobFoxAds.MobFoxAdsImplementation.MobFoxBannerCallback">
+             <summary>
+             Action to call when ad events happen
+             </summary>
+            </member>
+        <member name="T:Plugin.MobFoxAds.MobFoxAdsImplementation.MyBannerListener">
+             <summary>
+             Listener for Banner events:
+             </summary>
+            </member>
+        <member name="F:Plugin.MobFoxAds.MobFoxAdsImplementation.MyBannerListener.mThis">
+             <summary>
+             Parent class
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.MyBannerListener.SetParent(Plugin.MobFoxAds.MobFoxAdsImplementation)">
+             <summary>
+             Set Parent
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.MyBannerListener.OnBannerError(Android.Views.View,Java.Lang.Exception)">
+             <summary>
+             Banner error:
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.MyBannerListener.OnBannerLoaded(Android.Views.View)">
+             <summary>
+             Banner Loaded:
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.MyBannerListener.OnBannerClosed(Android.Views.View)">
+             <summary>
+             Banner closed:
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.MyBannerListener.OnBannerClicked(Android.Views.View)">
+             <summary>
+             Banner clicked:
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.MyBannerListener.OnBannerFinished">
+             <summary>
+             Banner clicked:
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.MyBannerListener.OnNoFill(Android.Views.View)">
+             <summary>
+             Banner clicked:
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.CreateBanner(System.String,System.Int32,System.Int32,System.Int32,System.Int32)">
+             <summary>
+             Create and show a banner ad
+             </summary>
+             <param name="hash">Hash of ad</param>
+             <param name="x">X coordinate of banner, default is 0</param>
+             <param name="y">Y coordinate of banner, default is 0</param>
+             <param name="width">Width of banner, default is 320</param>
+             <param name="height">Height of banner, default is 50</param>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.HideBanner">
+             <summary>
+             Hide banner
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.UnideBanner">
+             <summary>
+             Unhide banner
+             </summary>
+            </member>
+        <member name="F:Plugin.MobFoxAds.MobFoxAdsImplementation.MobFoxInterstitialCallback">
+             <summary>
+             Action to call when ad events happen
+             </summary>
+            </member>
+        <member name="T:Plugin.MobFoxAds.MobFoxAdsImplementation.MyInterstitialListener">
+             <summary>
+             Listener for Interstitial events:
+             </summary>
+            </member>
+        <member name="F:Plugin.MobFoxAds.MobFoxAdsImplementation.MyInterstitialListener.mThis">
+             <summary>
+             Parent class
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.MyInterstitialListener.SetParent(Plugin.MobFoxAds.MobFoxAdsImplementation)">
+             <summary>
+             Set Parent
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.MyInterstitialListener.OnInterstitialFailed(Com.Mobfox.Sdk.Interstitialads.InterstitialAd,Java.Lang.Exception)">
+             <summary>
+             Banner clicked:
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.MyInterstitialListener.OnInterstitialLoaded(Com.Mobfox.Sdk.Interstitialads.InterstitialAd)">
+             <summary>
+             Interstitial loaded:
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.MyInterstitialListener.OnInterstitialClosed(Com.Mobfox.Sdk.Interstitialads.InterstitialAd)">
+             <summary>
+             Interstitial closed:
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.MyInterstitialListener.OnInterstitialFinished">
+             <summary>
+             Interstitial finished:
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.MyInterstitialListener.OnInterstitialClicked(Com.Mobfox.Sdk.Interstitialads.InterstitialAd)">
+             <summary>
+             Interstitial clicked:
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.MyInterstitialListener.OnInterstitialShown(Com.Mobfox.Sdk.Interstitialads.InterstitialAd)">
+             <summary>
+             Interstitial shown:
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.CreateInterstitial(System.String)">
+             <summary>
+             Create interstitial
+             </summary>
+             <param name="hash">Hash of ad</param>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.ShowInterstitial">
+             <summary>
+             Show interstitial
+             </summary>
+            </member>
+        <member name="F:Plugin.MobFoxAds.MobFoxAdsImplementation.MobFoxNativeCallback">
+             <summary>
+             Action to call when ad events happen
+             </summary>
+            </member>
+        <member name="T:Plugin.MobFoxAds.MobFoxAdsImplementation.MyNativeListener">
+             <summary>
+             Listener for Native events:
+             </summary>
+            </member>
+        <member name="F:Plugin.MobFoxAds.MobFoxAdsImplementation.MyNativeListener.mThis">
+             <summary>
+             Parent class
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.MyNativeListener.SetParent(Plugin.MobFoxAds.MobFoxAdsImplementation)">
+             <summary>
+             Set Parent
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.MyNativeListener.OnNativeError(Java.Lang.Exception)">
+             <summary>
+             Native error:
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.MyNativeListener.OnNativeClick(Com.Mobfox.Sdk.Nativeads.NativeAd)">
+             <summary>
+             Native clicked:
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.MyNativeListener.OnNativeReady(Com.Mobfox.Sdk.Nativeads.Native,Com.Mobfox.Sdk.Customevents.ICustomEventNative,Com.Mobfox.Sdk.Nativeads.NativeAd)">
+             <summary>
+             Native loaded:
+             </summary>
+            </member>
+        <member name="M:Plugin.MobFoxAds.MobFoxAdsImplementation.CreateNative(System.String)">
+             <summary>
+             Create native
+             </summary>
+             <param name="hash">Hash of ad</param>
+            </member>
+    </members>
+</doc>

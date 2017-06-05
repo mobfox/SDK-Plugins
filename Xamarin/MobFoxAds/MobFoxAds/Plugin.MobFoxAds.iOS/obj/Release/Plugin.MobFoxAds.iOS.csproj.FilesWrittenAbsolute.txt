@@ -1,0 +1,10 @@
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.iOS/obj/Release/Xamarin.iOS,Version=v1.0.AssemblyAttribute.cs
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.iOS/obj/Release/optimized/
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.iOS/bin/iPhone/Release/Plugin.MobFoxAds.dll.mdb
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.iOS/bin/iPhone/Release/Plugin.MobFoxAds.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.iOS/obj/Release/Plugin.MobFoxAds.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.iOS/obj/Release/Plugin.MobFoxAds.dll.mdb
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.iOS/bin/iPhone/Release/Plugin.MobFoxAds.Abstractions.dll
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.iOS/bin/iPhone/Release/Plugin.MobFoxAds.Abstractions.dll.mdb
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.iOS/bin/iPhone/Release/Plugin.MobFoxAds.Abstractions.xml
+/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/MobFoxAds/Plugin.MobFoxAds.iOS/bin/iPhone/Release/AppleBinding.dll
