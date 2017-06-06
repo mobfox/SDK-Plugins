@@ -1,0 +1,35 @@
+Building the Unity plugin:
+==========================
+
+A. Building iOS part of the plugin: 
+
+	** ‘Assets/Plugins/iOS’ folder:
+
+	Copy the latest 'MobFoxSDKCore.framework' to the ‘Assets/Plugins/iOS’ folder
+	under the Unity project folder (for our demo app it is the 'MobFox-Unity-Demo' folder)
+      
+	The 'MobFoxUnityPlugin.h' & 'MobFoxUnityPlugin.mm' are the plugin implementation.
+	These are the files you can edit to make changes in the Unity iOS plugin.
+
+B. Building the Android part of the plugin:
+
+	** ‘Assets/Plugins/Android’ folder:
+
+	Copy the latest 'MobFox-Android-SDK-Core-X.X.X.jar' to the ‘Assets/Plugins/Android/libs’
+	folder under the Unity project folder (for our demo app it is the 'MobFox-Unity-Demo' folder)
+
+	The GIT has a folder called 'MobFox-Android-Unity-Plugin'. This is an Android Studio
+	project that generates the Android part of the Unity plugin.
+      
+	You can edit the code in this project, and then build it.
+      
+	After you build it, run the 'exportJar' script from within the Android Studio project.
+	It will create the file 'mobfox-android-unity-plugin.jar' file under
+	'app/build/outputs' folder.
+      
+	Copy this file to the ‘Assets/Plugins/Android/libs’ folder under the Unity project
+	folder (for our demo app it is the 'MobFox-Unity-Demo' folder)
+      
+   
+
+   
