@@ -12,6 +12,9 @@
 #import "MFLocationServicesManager.h"
 #import "MFExceptionHandler.h"
 
+#import "MFWebViewJavascriptBridgeBase.h"
+
+
 @class MobFoxAd;
 
 @protocol MobFoxAdDelegate <NSObject>
@@ -34,6 +37,9 @@
 
 
 @interface MobFoxAd : UIView <UIWebViewDelegate, MobFoxCustomEventDelegate, UIGestureRecognizerDelegate, MFExceptionHandlerDelegate>
+
+    
+@property (nonatomic, strong) UIWebView *webView;
 
 
 @property (nonatomic, weak) id <MobFoxAdDelegate> delegate;
@@ -58,20 +64,34 @@
 @property (nonatomic, copy) NSNumber* v_dur_min;
 @property (nonatomic, copy) NSNumber* v_dur_max;
 @property (nonatomic, strong) NSString* invh;
-@property (nonatomic, strong, setter = setRefresh:) NSNumber* refresh;
+@property (nonatomic, strong) NSNumber* refresh;
+@property (nonatomic, strong) NSString *requestID;
+
+
 
 @property (nonatomic, assign) BOOL autoplay;
 @property (nonatomic, assign) BOOL skip;
-@property (nonatomic, assign) BOOL no_markup;
+@property (nonatomic, assign) BOOL dev_js;
+@property (nonatomic, assign) BOOL isAdTouched;
 
-@property (nonatomic, assign) BOOL debug;
-@property (nonatomic, assign) BOOL delegateCustomEvents;
+
+@property (nonatomic, assign, getter=isUnitTesting) BOOL unit_testing;
+
+@property (nonatomic, assign) float timeout;
+
+
+
+
+//@property (nonatomic, assign, getter=isDebug) BOOL debug;
+@property (nonatomic, assign, getter=isDelegateCustomEvents) BOOL delegateCustomEvents;
+@property (nonatomic, assign, getter=isAdspace_strict) BOOL adspace_strict;
+
 
 
 
 - (id) init:(NSString*)invh;
 - (id) init:(NSString*)invh withFrame:(CGRect)aRect;
-- (void) loadAd;
+- (void)loadAd;
 
 - (void)webViewDidStartLoad:(UIWebView *)webView;
 - (void)webViewDidFinishLoad:(UIWebView *)webView;
@@ -81,13 +101,20 @@
 - (void)play;
 - (void)pause;
 - (void)resume;
-+ (void)locationServicesDisabled:(BOOL)disabled;
-- (void)renderAd:(NSDictionary *)adDict;
+- (void)renderAd:(NSDictionary *)adDict withCB:(void (^)(id responseData)) cb;
 - (BOOL)isViewVisible;
 
 - (void)_changeWidth:(float) newWidth;
 - (void)_setSize:(CGSize)size withContainer:(CGSize)container;
 - (void)_setFrame:(CGRect)aRect;
+
+
+- (void)removeTimeout;
+
+    
+
+    
+    
 
 @end
 

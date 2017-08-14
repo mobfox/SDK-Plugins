@@ -50,18 +50,19 @@
 @property (nonatomic, strong) MFLocationServicesManager *locationServicesManager;
 
 
--(id) init:(NSString*)invh;
--(id) init:(NSString*)invh withRootViewController:(UIViewController*)root;
--(void) loadAd;
--(void) show;
-+ (void)locationServicesDisabled:(BOOL)disabled;
-- (void)dismissAd;
+- (id) init:(NSString*)invh;
+- (id) init:(NSString*)invh withRootViewController:(UIViewController*)root;
+- (void) loadAd;
+- (void) show;
+- (void) dismissAd;
+
 
 @property (nonatomic, strong) NSString* invh;
+@property (nonatomic, strong) NSString *requestID;
 
 @property (nonatomic, copy) NSString* longitude;
 @property (nonatomic, copy) NSString* latitude;
-@property (nonatomic, copy) NSString* demo_gender; //"m/f"
+@property (nonatomic, copy) NSString* demo_gender;
 @property (nonatomic, copy) NSString* demo_age;
 @property (nonatomic, copy) NSString* s_subid;
 @property (nonatomic, copy) NSString* sub_name;
@@ -69,8 +70,6 @@
 @property (nonatomic, copy) NSString* sub_storeurl;
 @property (nonatomic, copy) NSString* r_floor;
 
-//set this (in seconds) to make the ad refresh
-@property (nonatomic, assign) NSNumber* refresh;
 @property (nonatomic, copy) NSNumber* v_dur_min;
 @property (nonatomic, copy) NSNumber* v_dur_max;
 
