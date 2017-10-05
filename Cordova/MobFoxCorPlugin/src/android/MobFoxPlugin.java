@@ -46,8 +46,6 @@ public class MobFoxPlugin extends CordovaPlugin {
     private CallbackContext mBannerCallback = null;
     private CallbackContext mInterstitialCallback = null;
     private CallbackContext mNativeCallback = null;
-    
-    private static boolean      mUseLocation = false;
 
 	//#############################################################
 	//### M I S C                                               ###
@@ -98,29 +96,10 @@ public class MobFoxPlugin extends CordovaPlugin {
 		
 		MobFoxPlugin.mContext     = cordova.getActivity();
 		MobFoxPlugin.mCordovaView = webView;
-		MobFoxPlugin.mUseLocation = false;
 	}
 
 	public boolean execute(final String action, JSONArray args, CallbackContext callbackContext) throws JSONException
 	{
-    	if (action.equals("setUseLocation")) 
-    	{
-    		JSONObject dict = new JSONObject(args.getString(0));
-    		if (dict!=null)
-    		{
-    			MobFoxPlugin.mUseLocation = dict.getBoolean("useLocation"); 	
-    			
-    			if (MobFoxPlugin.mUseLocation)
-    			{
-					Log.v(TAG,"### setUseLocation=TRUE ###");
-    			} else {
-					Log.v(TAG,"### setUseLocation=FALSE ###");
-    			}
-    			
-        		return true;
-    		}
-    	}
-    	
     	if (action.equals("showBanner")) 
     	{
     		mBannerCallback = callbackContext;
@@ -266,9 +245,6 @@ public class MobFoxPlugin extends CordovaPlugin {
     		mBanner = null;
     	}
     	
-        // removed after build 1.02: "setLocation" is done in the manifest
-    	//Banner.setGetLocation(MobFoxPlugin.mUseLocation);
-    	
         mBanner = new Banner(MobFoxPlugin.mContext, in_w, in_h);
         if (mBanner!=null)
         {
@@ -291,7 +267,7 @@ public class MobFoxPlugin extends CordovaPlugin {
     		mBanner.setListener(mBannerListener);
 
     		mBanner.setInventoryHash(myHash);
-  
+
     		mBanner.load();
         }
 	}
@@ -393,9 +369,6 @@ public class MobFoxPlugin extends CordovaPlugin {
        	{
        		mInterstitial = null;
        	}
-    	
-        // removed after build 1.02: "setLocation" is done in the manifest
-    	//Banner.setGetLocation(MobFoxPlugin.mUseLocation);
        	
 		mInterstitial = new InterstitialAd(MobFoxPlugin.mContext);
 		

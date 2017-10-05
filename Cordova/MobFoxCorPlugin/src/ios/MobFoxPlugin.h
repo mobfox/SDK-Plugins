@@ -10,8 +10,6 @@
 
 @interface MobFoxPlugin : CDVPlugin <MobFoxAdDelegate, MobFoxInterstitialAdDelegate, MobFoxNativeAdDelegate>
 
-- (void)setUseLocation:(CDVInvokedUrlCommand*)command;
-
 - (void)showBanner:(CDVInvokedUrlCommand*)command;
 
 - (void)hideBanner:(CDVInvokedUrlCommand*)command;

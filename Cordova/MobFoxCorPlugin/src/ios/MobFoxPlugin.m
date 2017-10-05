@@ -25,8 +25,6 @@ CDVInvokedUrlCommand *mBannerCommand       = nil;
 CDVInvokedUrlCommand *mInterstitialCommand = nil;
 CDVInvokedUrlCommand *mNativeCommand       = nil;
 
-bool mUseLocation = false;
-
 //======================================================================================
 //======  G E N E R A L                                                           ======
 //======================================================================================
@@ -82,31 +80,6 @@ bool mUseLocation = false;
 }
 
 //======================================================================================
-//======  L O C A T I O N                                                         ======
-//======================================================================================
-
-- (void)setUseLocation:(CDVInvokedUrlCommand*)command
-{
-    NSMutableDictionary* dict = [command.arguments objectAtIndex:0];
-
-    if (dict != nil && [dict count] > 0)
-    {
-    	NSNumber *numUseLocation = [dict objectForKey:@"useLocation"];
-    	if (numUseLocation!=nil)
-    	{
-    		mUseLocation = [numUseLocation boolValue];
-    		
-    		if (mUseLocation)
-    		{
-    			NSLog(@"dbg: ### setUseLocation: TRUE ###");
-    		} else {
-    			NSLog(@"dbg: ### setUseLocation: FALSE ###");
-    		}
-    	}
-    }
-}
-
-//======================================================================================
 //======  B A N N E R                                                             ======
 //======================================================================================
 
@@ -121,7 +94,7 @@ bool mUseLocation = false;
     	NSNumber *y    = [dict objectForKey:@"y"];
     	NSNumber *w    = [dict objectForKey:@"w"];
     	NSNumber *h    = [dict objectForKey:@"h"];
-    	
+		
     	if ((invh!=nil) && (x!=nil) && (y!=nil) && (w!=nil) && (h!=nil))
     	{
     		mBannerCommand = command;
@@ -187,14 +160,6 @@ bool mUseLocation = false;
     
     CGRect placement = CGRectMake(originX,originY,sizeWidth,sizeHeight);
   		
-    if (mUseLocation)
-    {
-    	NSLog(@"dbg: ### useLocation: TRUE ###");
-    } else {
-    	NSLog(@"dbg: ### useLocation: FALSE ###");
-    }
-    [MobFoxAd locationServicesDisabled:!mUseLocation];
-    
     if (self.banner!=nil)
     {
     	[self.banner removeFromSuperview];
@@ -275,15 +240,7 @@ bool mUseLocation = false;
     	if (invh!=nil)
     	{
     		mInterstitialCommand = command;
-
-    		if (mUseLocation)
-    		{
-    			NSLog(@"dbg: ### useLocation: TRUE ###");
-    		} else {
-    			NSLog(@"dbg: ### useLocation: FALSE ###");
-    		}
-    		[MobFoxAd locationServicesDisabled:!mUseLocation];
-    
+			
     		self.inter = [[MobFoxInterstitialAd alloc] init:invh
                              withRootViewController:self.viewController];//UnityGetGLViewController()];
     
@@ -377,15 +334,7 @@ bool mUseLocation = false;
     	if (invh!=nil)
     	{
     		mNativeCommand = command;
-
-    		if (mUseLocation)
-    		{
-    			NSLog(@"dbg: ### useLocation: TRUE ###");
-    		} else {
-    			NSLog(@"dbg: ### useLocation: FALSE ###");
-    		}
-    		[MobFoxAd locationServicesDisabled:!mUseLocation];
-    
+			
     		self.mobfoxNativeAd = [[MobFoxNativeAd alloc] init:invh];
     
     		self.mobfoxNativeAd.delegate = self;
