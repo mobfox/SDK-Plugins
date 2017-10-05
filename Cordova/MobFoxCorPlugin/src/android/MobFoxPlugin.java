@@ -133,10 +133,11 @@ public class MobFoxPlugin extends CordovaPlugin {
         		final int    y    = dict.getInt("y");
         		final int    w    = dict.getInt("w");
         		final int    h    = dict.getInt("h");
+        		final int    r    = dict.getInt("refresh");
        
 	           	cordova.getActivity().runOnUiThread(new Runnable() {
 				public void run() {
-	        		showBanner(hash, x, y, w, h);
+	        		showBanner(hash, x, y, w, h, r);
 					}
 				});
  	
@@ -252,7 +253,7 @@ public class MobFoxPlugin extends CordovaPlugin {
 	//### B A N N E R                                           ###
 	//#############################################################
 
-	private void showBanner(String myHash, int in_x, int in_y, int in_w, int in_h)
+	private void showBanner(String myHash, int in_x, int in_y, int in_w, int in_h, int refresh)
 	{
 		if (MobFoxPlugin.mContext==null) return;
 
@@ -291,6 +292,8 @@ public class MobFoxPlugin extends CordovaPlugin {
     		mBanner.setListener(mBannerListener);
 
     		mBanner.setInventoryHash(myHash);
+
+    		mBanner.setRefresh(refresh);
   
     		mBanner.load();
         }

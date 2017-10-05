@@ -121,8 +121,9 @@ bool mUseLocation = false;
     	NSNumber *y    = [dict objectForKey:@"y"];
     	NSNumber *w    = [dict objectForKey:@"w"];
     	NSNumber *h    = [dict objectForKey:@"h"];
-    	
-    	if ((invh!=nil) && (x!=nil) && (y!=nil) && (w!=nil) && (h!=nil))
+    	NSNumber *r    = [dict objectForKey:@"refresh"];
+		
+    	if ((invh!=nil) && (x!=nil) && (y!=nil) && (w!=nil) && (h!=nil) && (r!=nil))
     	{
     		mBannerCommand = command;
     	
@@ -132,7 +133,8 @@ bool mUseLocation = false;
 						   originX:[x floatValue]
 						   originY:[y floatValue]
 						 sizeWidth:[w floatValue]
-						sizeHeight:[h floatValue]];
+						sizeHeight:[h floatValue]
+						   refresh:r];
 			});
 					
         	return;
@@ -177,6 +179,7 @@ bool mUseLocation = false;
 			originY:(CGFloat)originY
           sizeWidth:(CGFloat)sizeWidth
          sizeHeight:(CGFloat)sizeHeight
+			refresh:(NSNumber *)refresh
 {
     NSLog(@"dbg: ### MobFoxCorPlugin >> createBanner(%@)",invh);
     
@@ -184,6 +187,7 @@ bool mUseLocation = false;
     NSLog(@"dbg: ### MobFoxCorPlugin >> rect y: %f", originY);
     NSLog(@"dbg: ### MobFoxCorPlugin >> rect width: %f", sizeWidth);
     NSLog(@"dbg: ### MobFoxCorPlugin >> rect height: %f", sizeHeight);
+    NSLog(@"dbg: ### MobFoxCorPlugin >> refresh: %d", [refresh intValue]);
     
     CGRect placement = CGRectMake(originX,originY,sizeWidth,sizeHeight);
   		
@@ -203,6 +207,7 @@ bool mUseLocation = false;
     self.banner = [[MobFoxAd alloc] init:invh withFrame:placement];
     
     self.banner.delegate = self;
+    self.banner.refresh = refresh;
     
     NSString* key = [NSString stringWithFormat:@"key-%d",self.nextId];
     [self.ads setValue:self.banner forKey:key];
