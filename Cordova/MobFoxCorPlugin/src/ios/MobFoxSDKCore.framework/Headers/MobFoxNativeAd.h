@@ -57,7 +57,6 @@
     - (id) init:(NSString*)invh;
     - (void) loadAd;
     - (void) registerViewWithInteraction:(UIView *)view withViewController:(UIViewController *)viewController;
-    + (void) locationServicesDisabled:(BOOL)disabled;
 
     //- (void)MFNativeCustomEventAd:(MobFoxNativeCustomEvent *)event didLoad:(NSDictionary *)ad;
     //- (void)MFNativeCustomEventAdDidFailToReceiveAdWithError:(NSError *)error;

@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MFReport : NSObject
+@interface MFReport : NSObject <NSURLConnectionDataDelegate>
 
-+(void) log:(NSString*)facility withInventoryHash:(NSString*)hash andWithMessage:(NSString*) message;
++ (void)log:(NSString*)facility withInventoryHash:(NSString*)hash andWithMessage:(NSString*)message requestID:(NSString*)requestID;
 
+
++ (void)reportOnErrorWithFacility:(NSString *)facility inventoryHash:(NSString*)hash message:(NSString*)message requestID:(NSString*)requestID;
+    
 @end
