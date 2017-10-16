@@ -4,27 +4,6 @@ function MobFoxPlugin() {
  	console.log("MobFoxPlugin.js: is created");
 }
 
-MobFoxPlugin.prototype.setUseLocation = function(useLocation) {
-	
-	if(typeof useLocation === 'undefined') useLocation = false;
-	
-	exec(function(result){
-					var myCustomEvent = new Event(result);
-					document.dispatchEvent(myCustomEvent);
-   				},
-  				function(result){
-					var myCustomEvent = new CustomEvent("onBannerFailed",  {
-						detail: {
-							message: result,
-							time: new Date()
-						},
-						bubbles: true,
-						cancelable: true});
-					document.dispatchEvent(myCustomEvent);
-    				//alert("Error: " + result);
-   				}, "MobFoxPlugin", "setUseLocation", [{useLocation:useLocation}] );
-};
-
 MobFoxPlugin.prototype.showBanner = function(hash, x, y, w, h, refresh) {
 	
 	if(typeof hash === 'undefined') hash = 'fe96717d9875b9da4339ea5367eff1ec';

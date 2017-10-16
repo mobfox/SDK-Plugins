@@ -39,7 +39,7 @@
     		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
         </config-file>
           
-        <source-file src="src/android/MobFox-Android-SDK-Core-3.0.6ShSh.jar" target-dir="libs" />
+        <source-file src="src/android/MobFox-Android-SDK-Core-3.2.8c.jar" target-dir="libs" />
         
      </platform>
 
