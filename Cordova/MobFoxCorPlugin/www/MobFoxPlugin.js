@@ -4,13 +4,14 @@ function MobFoxPlugin() {
  	console.log("MobFoxPlugin.js: is created");
 }
 
-MobFoxPlugin.prototype.showBanner = function(hash, x, y, w, h) {
+MobFoxPlugin.prototype.showBanner = function(hash, x, y, w, h, refresh) {
 	
 	if(typeof hash === 'undefined') hash = 'fe96717d9875b9da4339ea5367eff1ec';
 	if(typeof x === 'undefined') x = 0;
 	if(typeof y === 'undefined') y = 0;
 	if(typeof w === 'undefined') w = 320;
 	if(typeof h === 'undefined') h = 50;
+	if(typeof refresh === 'undefined') refresh = 30;
 	
 	exec(function(result){
 					var myCustomEvent = new Event(result);
@@ -26,7 +27,7 @@ MobFoxPlugin.prototype.showBanner = function(hash, x, y, w, h) {
 						cancelable: true});
 					document.dispatchEvent(myCustomEvent);
     				//alert("Error: " + result);
-   				}, "MobFoxPlugin", "showBanner", [{hash:hash, x:x, y:y, w:w, h:h}] );
+   				}, "MobFoxPlugin", "showBanner", [{hash:hash, x:x, y:y, w:w, h:h, refresh:refresh}] );
 };
 
 MobFoxPlugin.prototype.hideBanner = function() {

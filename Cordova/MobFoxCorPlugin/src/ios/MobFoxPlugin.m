@@ -94,8 +94,10 @@ CDVInvokedUrlCommand *mNativeCommand       = nil;
     	NSNumber *y    = [dict objectForKey:@"y"];
     	NSNumber *w    = [dict objectForKey:@"w"];
     	NSNumber *h    = [dict objectForKey:@"h"];
+    	NSNumber *r    = [dict objectForKey:@"refresh"];
 		
-    	if ((invh!=nil) && (x!=nil) && (y!=nil) && (w!=nil) && (h!=nil))
+    	if ((invh!=nil) && (x!=nil) && (y!=nil) && (w!=nil) && (h!=nil) && (r!=nil))
+
     	{
     		mBannerCommand = command;
     	
@@ -105,7 +107,8 @@ CDVInvokedUrlCommand *mNativeCommand       = nil;
 						   originX:[x floatValue]
 						   originY:[y floatValue]
 						 sizeWidth:[w floatValue]
-						sizeHeight:[h floatValue]];
+						sizeHeight:[h floatValue]
+						   refresh:r];
 			});
 					
         	return;
@@ -150,6 +153,7 @@ CDVInvokedUrlCommand *mNativeCommand       = nil;
 			originY:(CGFloat)originY
           sizeWidth:(CGFloat)sizeWidth
          sizeHeight:(CGFloat)sizeHeight
+			refresh:(NSNumber *)refresh
 {
     NSLog(@"dbg: ### MobFoxCorPlugin >> createBanner(%@)",invh);
     
@@ -157,6 +161,7 @@ CDVInvokedUrlCommand *mNativeCommand       = nil;
     NSLog(@"dbg: ### MobFoxCorPlugin >> rect y: %f", originY);
     NSLog(@"dbg: ### MobFoxCorPlugin >> rect width: %f", sizeWidth);
     NSLog(@"dbg: ### MobFoxCorPlugin >> rect height: %f", sizeHeight);
+    NSLog(@"dbg: ### MobFoxCorPlugin >> refresh: %d", [refresh intValue]);
     
     CGRect placement = CGRectMake(originX,originY,sizeWidth,sizeHeight);
   		
@@ -168,6 +173,7 @@ CDVInvokedUrlCommand *mNativeCommand       = nil;
     self.banner = [[MobFoxAd alloc] init:invh withFrame:placement];
     
     self.banner.delegate = self;
+    self.banner.refresh = refresh;
     
     NSString* key = [NSString stringWithFormat:@"key-%d",self.nextId];
     [self.ads setValue:self.banner forKey:key];
