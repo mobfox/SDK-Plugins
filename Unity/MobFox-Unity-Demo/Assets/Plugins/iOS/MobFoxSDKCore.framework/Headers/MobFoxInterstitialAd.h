@@ -69,6 +69,10 @@
 @property (nonatomic, copy) NSString* sub_domain;
 @property (nonatomic, copy) NSString* sub_storeurl;
 @property (nonatomic, copy) NSString* r_floor;
+@property (nonatomic, assign) NSString* v_rewarded;
+@property (nonatomic, assign) NSString* type;
+
+
 
 @property (nonatomic, copy) NSNumber* v_dur_min;
 @property (nonatomic, copy) NSNumber* v_dur_max;

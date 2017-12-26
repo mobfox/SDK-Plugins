@@ -41,7 +41,7 @@
 @property (nonatomic, copy) NSString *advertiserName;
 @property (nonatomic, copy) NSString *socialContext;
 @property (nonatomic, copy) NSNumber *rating;
-@property (nonatomic, copy) NSURL *clickURL;
+@property (nonatomic, copy) NSURL    *clickURL;
 
 @property (nonatomic, strong) NSMutableArray *trackersArray;
 

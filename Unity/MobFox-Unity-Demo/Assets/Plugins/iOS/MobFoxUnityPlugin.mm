@@ -257,7 +257,7 @@ extern "C"
     static MobFoxUnityPlugin* plugin = [[MobFoxUnityPlugin alloc] init];
     
     void _setUseLocation(bool in_useLocation){
-    	[plugin setUseLocation:in_useLocation];
+//        [plugin setUseLocation:in_useLocation];
 	}
 
     void _setGameObject(const char* gameObject){

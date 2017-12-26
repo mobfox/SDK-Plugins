@@ -50,6 +50,7 @@
     @property (nonatomic, strong) NSString* invh;
     @property (nonatomic, strong) NSString* serverURL;
 
+
     // new properties (required for 1.1)
     //@property (nonatomic, strong) NSString* i_ipaddress;
 

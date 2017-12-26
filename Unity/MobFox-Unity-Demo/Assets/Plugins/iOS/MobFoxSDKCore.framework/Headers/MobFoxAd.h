@@ -11,7 +11,6 @@
 #import "MFWebViewJavascriptBridge.h"
 #import "MFLocationServicesManager.h"
 #import "MFExceptionHandler.h"
-
 #import "MFWebViewJavascriptBridgeBase.h"
 
 
@@ -66,6 +65,7 @@
 @property (nonatomic, strong) NSString* invh;
 @property (nonatomic, strong) NSNumber* refresh;
 @property (nonatomic, strong) NSString *requestID;
+@property (nonatomic, assign) NSString* v_rewarded;
 
 
 
@@ -73,13 +73,10 @@
 @property (nonatomic, assign) BOOL skip;
 @property (nonatomic, assign) BOOL dev_js;
 @property (nonatomic, assign) BOOL isAdTouched;
-
+@property (nonatomic, assign) BOOL imp_secure;
 
 @property (nonatomic, assign, getter=isUnitTesting) BOOL unit_testing;
-
 @property (nonatomic, assign) float timeout;
-
-
 
 
 //@property (nonatomic, assign, getter=isDebug) BOOL debug;
