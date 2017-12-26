@@ -22,7 +22,7 @@ extern "C"
     @property (nonatomic,strong) MobFoxAd* banner;
     @property (nonatomic,strong) MobFoxInterstitialAd* inter;
     @property (nonatomic,strong) MobFoxNativeAd* mobfoxNativeAd;
-    @property bool mUseLocation;
+//    @property bool mUseLocation;
 
 @end
 
@@ -37,7 +37,7 @@ extern "C"
     self.ads = [[NSMutableDictionary alloc] init];
     self.nextId = 1;
     self.gameObject = nil;
-    self.mUseLocation = false;
+//    self.mUseLocation = false;
     return self;
 }
 
@@ -47,9 +47,7 @@ extern "C"
 
 -(void) setUseLocation:(bool)in_useLocation
 {
-	self.mUseLocation = in_useLocation;
-	
-    [MobFoxAd locationServicesDisabled:!self.mUseLocation];
+//    self.mUseLocation = in_useLocation;
 }
 
 //======================================================================================
@@ -70,8 +68,6 @@ extern "C"
     NSLog(@"dbg: ### MobFoxUnityPlugin >> rect height: %f", sizeHeight);
     
     CGRect placement = CGRectMake(originX,originY,sizeWidth,sizeHeight);
-
-    [MobFoxAd locationServicesDisabled:!self.mUseLocation];
     
     self.banner = [[MobFoxAd alloc] init:invh withFrame:placement];
     self.banner.delegate = self;
@@ -135,8 +131,6 @@ extern "C"
 -(void) createInterstitial:(NSString*)invh{
     
     NSLog(@"dbg: ### MobFoxUnityPlugin >> createInterstitial(%@)",invh);
-        
-    [MobFoxAd locationServicesDisabled:!self.mUseLocation];
     
     self.inter = [[MobFoxInterstitialAd alloc] init:invh
                              withRootViewController:UnityGetGLViewController()];
@@ -207,8 +201,6 @@ extern "C"
 -(void) createNative:(NSString*)invh{
     
     NSLog(@"dbg: ### MobFoxUnityPlugin >> createNative(%@)",invh);
-    
-    [MobFoxNativeAd locationServicesDisabled:!self.mUseLocation];
     
     self.mobfoxNativeAd = [[MobFoxNativeAd alloc] init:invh];
     
