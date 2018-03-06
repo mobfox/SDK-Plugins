@@ -18,11 +18,15 @@
 @class MobFoxNativeAd;
 
 
-@protocol MobFoxNativeAdDelegate <NSObject>
+@protocol MobFoxNativeAdDelegate <NSObject,UIGestureRecognizerDelegate>
 
 @required
 
 - (void)MobFoxNativeAdDidLoad:(MobFoxNativeAd*)ad withAdData:(MobFoxNativeData *)adData;
+//- (void)MobFoxNativeGeusture;
+
+
+
 
 @optional
 
@@ -30,7 +34,7 @@
 
 @end
 
-@interface MobFoxNativeAd : NSObject <MobFoxNativeCustomEventDelegate>
+@interface MobFoxNativeAd : NSObject
 
     @property (nonatomic, weak) id <MobFoxNativeAdDelegate> delegate;
     
@@ -55,12 +59,9 @@
     //@property (nonatomic, strong) NSString* i_ipaddress;
 
 
-    - (id) init:(NSString*)invh;
+    - (id) init:(NSString*)invh nativeView:(UIView *) view;
     - (void) loadAd;
-    - (void) registerViewWithInteraction:(UIView *)view withViewController:(UIViewController *)viewController;
-
-    //- (void)MFNativeCustomEventAd:(MobFoxNativeCustomEvent *)event didLoad:(NSDictionary *)ad;
-    //- (void)MFNativeCustomEventAdDidFailToReceiveAdWithError:(NSError *)error;
+    -(void) fireTrackers;
 
 @end
 

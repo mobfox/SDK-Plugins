@@ -18,6 +18,15 @@
 
 @end
 
+@interface MobFoxNativeClickTracker : NSObject
+
+@property (nonatomic, copy) NSString *type;
+@property (nonatomic, copy) NSURL *url;
+
+- (instancetype)initWithURL:(NSURL *)url type:(NSString *)type;
+
+@end
+
 @interface MobFoxNativeImage : NSObject
 
 @property (nonatomic, copy) NSURL *url;
@@ -44,6 +53,7 @@
 @property (nonatomic, copy) NSURL    *clickURL;
 
 @property (nonatomic, strong) NSMutableArray *trackersArray;
+@property (nonatomic, strong) NSMutableArray *clickTrackersArray;
 
 //@property (nonatomic, strong) id sourceAd;
 

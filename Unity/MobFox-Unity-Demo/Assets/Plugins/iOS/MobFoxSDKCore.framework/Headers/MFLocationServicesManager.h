@@ -15,12 +15,17 @@
 @property (nonatomic) double latitude;
 @property (nonatomic) double longitude;
 @property (nonatomic) double accuracy;
+@property (nonatomic) double altitude;
+@property (nonatomic) double userSpeed;
+@property (nonatomic) double userHeading;
+@property (nonatomic) double hCLLocationAccuracy;
+@property (nonatomic) double vCLLocationAccuracy;
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
 + (instancetype)sharedInstance;
 - (void)findLocation;
 - (void)stopFindingLocation;
-
+-(BOOL) isSupportLocation;
 
 @end

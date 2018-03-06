@@ -9,7 +9,7 @@
 #ifndef MobFoxSDKSource_MobFoxInterstitialVideo_h
 #define MobFoxSDKSource_MobFoxInterstitialVideo_h
 
-#include "MobFoxAd.h"
+#include "MobFoxAdOld.h"
 #import "MobFoxInterstitialCustomEvent.h"
 
 
@@ -38,7 +38,7 @@
 @end
 
 
-@interface MobFoxInterstitialAd : NSObject<MobFoxAdDelegate,MobFoxInterstitialCustomEventDelegate, NSURLSessionDelegate, NSURLSessionDataDelegate, NSURLSessionTaskDelegate>
+@interface MobFoxInterstitialAd : NSObject<MobFoxAdDelegateOld,MobFoxInterstitialCustomEventDelegate, NSURLSessionDelegate, NSURLSessionDataDelegate, NSURLSessionTaskDelegate>
 
 
 @property (nonatomic, weak) id<MobFoxInterstitialAdDelegate> delegate;

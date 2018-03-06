@@ -14,13 +14,10 @@ extern NSString* const CORE_TARGET;
 
 
 /* Versions */
-#define SDK_VERSION @"Core_3.3.0"
+#define SDK_VERSION @"Core_3.4.0"
 #define OS_VERSION        [[[UIDevice currentDevice] systemVersion] floatValue]
 #define FW_VERSION        [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"]
 #define BUILD_VERSION     [[NSBundle mainBundle] objectForInfoDictionaryKey: (NSString *)kCFBundleVersionKey]
-#define OS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
-#define FW_VERSION [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"]
-#define BUILD_VERSION [[NSBundle mainBundle] objectForInfoDictionaryKey: (NSString *)kCFBundleVersionKey]
 
 /* Errors */
 #define ERROR_DOMAIN      @""

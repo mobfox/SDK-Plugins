@@ -61,17 +61,14 @@
 @property (nonatomic, strong) NSString* invh;
 @property (nonatomic, strong) NSString *requestID;
 
-@property (nonatomic, assign) BOOL c_mraid;
 @property (nonatomic, assign) BOOL dev_js;
 @property (nonatomic, assign) BOOL imp_secure;
 @property (nonatomic, assign) BOOL adspace_strict;
 
 
-
-
 - (id) init:(NSString*)invh withFrame:(CGRect)aRect;
 - (void) loadAd;
-
+- (void) renderAd:(NSData*)respData andWithMoat:(BOOL)moat;
 
 @end
 
