@@ -15,7 +15,7 @@
     
     <activity 
 		android:name="com.mobfox.sdk.interstitialads.InterstitialActivity"
-		>
+		android:hardwareAccelerated="true">
 	</activity>
 
     
