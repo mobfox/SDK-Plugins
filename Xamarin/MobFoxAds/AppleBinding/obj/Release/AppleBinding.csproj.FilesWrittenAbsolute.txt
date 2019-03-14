@@ -1,3 +1,0 @@
-/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/AppleBinding/obj/Release/Xamarin.iOS,Version=v1.0.AssemblyAttribute.cs
-/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/AppleBinding/bin/Release/AppleBinding.dll
-/Users/TAKEphONE/Documents/Matomy/xamarin/MobFoxAds/AppleBinding/obj/Release/AppleBinding.dll
