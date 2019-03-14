@@ -1,17 +1,3 @@
 # SDK-Plugins
-plugins from various frameworks to our SDK
-
-## Unity Plugin
-Download and Docs in [wiki](https://github.com/mobfox/SDK-Plugins/wiki/Unity-Plugin).
-
-## Cordova Plugin
-Download and Docs in [wiki](https://github.com/mobfox/SDK-Plugins/wiki/Cordova-Plugin).
-
-## Adobe Air Plugin
-Download and Docs in [wiki](https://github.com/mobfox/SDK-Plugins/wiki/Adobe-Air-Plugin).
-
-## GameMaker Plugin
-Download and Docs in [wiki](https://github.com/mobfox/SDK-Plugins/wiki/GameMaker-Plugin).
-
-## Xamarin Plugin
-Download and Docs in [wiki](https://github.com/mobfox/SDK-Plugins/wiki/Xamarin-Plugin).
+***
+[Documentation](#%20SDK-Plugins%20***%20Documentation%20%5Bhttps://mobfox.atlassian.net/wiki/spaces/PUMD/pages/479592521/Plugins%5D) 
